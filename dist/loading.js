@@ -49,7 +49,6 @@ export function createIntroScreen({ resume = false } = {}) {
   const fill = root.querySelector('.intro-progress-fill');
   const percent = root.querySelector('.intro-percent');
   const status = root.querySelector('.intro-load-status');
-  const readyNote = root.querySelector('.intro-ready-note');
   let progress = 0;
   let resolveStart;
   const entered = new Promise(resolve => { resolveStart = resolve; });
@@ -69,7 +68,7 @@ export function createIntroScreen({ resume = false } = {}) {
       percent.textContent = `${progress}%`;
       if (text) status.textContent = text;
     },
-    ready() { readyNote.textContent = 'Магазин готов — можно начинать'; this.progress(100, 'Всё готово. Открываем магазин…'); },
+    ready() { this.progress(100, 'Открываем магазин…'); },
     fail() {
       welcome.hidden = true; loading.hidden = false;
       root.classList.add('intro-failed');

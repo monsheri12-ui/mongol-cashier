@@ -2,7 +2,7 @@ import { SHIFTS, normalizeSettings, createShift, currentReceipt, submitAnswer, a
 import { checkAnswer } from './numbers.js';
 import { checkoutSurface, layoutPurchases } from './table.js';
 import { receiptCopy, receiptUnit, receiptName } from './receipt.js';
-import { collectGameAssets, preloadAssets, createIntroScreen } from './loading.js';
+import { collectGameAssets, preloadAssets, createIntroScreen } from './loading.js?v=1.1.1';
 
 const app = document.querySelector('#app');
 const world = document.querySelector('#world');

@@ -7,42 +7,34 @@
   <meta name="description" content="Уютный монгольский магазин. Назови сумму покупки по-монгольски, обслужи свою смену и разбери ошибки.">
   <title>Монгол дэлгүүр · Кассир</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='16' width='64' height='64' fill='%23194d43'/%3E%3Cpath d='M18 12h28v40l-5-4-5 4-5-4-5 4-8-4z' fill='%23fff0d1'/%3E%3Cpath d='M25 23h14M25 30h14M25 37h8' stroke='%23194d43' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="intro.css">
+  <link rel="stylesheet" href="styles.css?v=1.1.1">
+  <link rel="stylesheet" href="intro.css?v=1.1.1">
   <link rel="preload" as="image" href="assets/world/table-v2/evening.webp">
 </head>
 <body class="is-booting">
   <section id="game-intro" class="game-intro" aria-label="Монгольский магазин — начало игры">
     <img class="intro-backdrop" src="assets/world/table-v2/evening.webp" alt="" fetchpriority="high">
     <div class="intro-tint"></div>
-    <header class="intro-brand"><span class="intro-brand-mark">₮</span><span>Лисья нора<small>Играем и учим монгольский</small></span></header>
     <div class="intro-card">
-      <div class="intro-card-top"><span class="intro-tiny-receipt" aria-hidden="true">₮</span><span>ТВОЯ СМЕНА НАЧИНАЕТСЯ ЗДЕСЬ</span></div>
       <div class="intro-welcome">
-        <p class="intro-eyebrow">Кассир · Учебная игра</p>
         <h1 lang="mn">Монгол<br><em>дэлгүүр</em></h1>
-        <p class="intro-description">За окнами меняется город, а у кассы — новые лица. Назови сумму по-монгольски и помоги каждому покупателю оплатить покупки.</p>
-        <div class="intro-features"><span><strong>100</strong> покупателей</span><span><strong>4</strong> времени суток</span><span><strong>10–40</strong> чеков за смену</span></div>
+        <p class="intro-description">Назови сумму по-монгольски и помоги каждому покупателю оплатить покупки.</p>
         <button class="intro-start" data-intro-start disabled><span>Начать игру</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
-        <p class="intro-ready-note">Раскладываем покупки и встречаем гостей…</p>
       </div>
       <div class="intro-loading" hidden>
-        <p class="intro-eyebrow">Скоро откроемся</p>
-        <h2>Открываем<br><em>магазин</em></h2>
+        <h2 lang="mn">Монгол<br><em>дэлгүүр</em></h2>
         <div class="intro-loader-art" aria-hidden="true"><span class="loader-receipt">₮<i></i><i></i><i></i></span><span class="loader-dot"></span></div>
-        <div class="intro-progress-caption"><span>Готовим твою смену</span><strong class="intro-percent">0%</strong></div>
+        <div class="intro-progress-caption"><span>Загрузка</span><strong class="intro-percent">0%</strong></div>
         <div class="intro-progress" role="progressbar" aria-label="Загрузка игры" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="intro-progress-fill"></span></div>
         <p class="intro-load-status" aria-live="polite">Открываем двери магазина…</p>
         <button class="intro-start intro-retry" hidden>Попробовать ещё раз</button>
       </div>
-      <footer class="intro-card-footer"><span>Ө</span><i></i><span>Ү</span><i></i><span>₮</span></footer>
     </div>
-    <p class="intro-bottom-note">Одна покупка — ещё один шаг в монгольском</p>
   </section>
   <div id="world" class="world" aria-hidden="true"></div>
   <div id="app"></div>
   <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   <noscript><style>.game-intro{display:none}</style><div class="boot"><h1>Для игры нужен JavaScript</h1><p>Включите его в настройках браузера и обновите страницу.</p></div></noscript>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=1.1.1"></script>
 </body>
 </html>
