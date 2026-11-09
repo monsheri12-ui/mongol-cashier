@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "width": 1670,
+  "height": 941,
+  "base": "evening",
+  "variants": [
+    {
+      "id": "dawn",
+      "src": "assets/world/table-v2/dawn.webp",
+      "width": 1670,
+      "height": 942
+    },
+    {
+      "id": "morning",
+      "src": "assets/world/table-v2/morning.webp",
+      "width": 1670,
+      "height": 942
+    },
+    {
+      "id": "day",
+      "src": "assets/world/table-v2/day.webp",
+      "width": 1670,
+      "height": 942
+    },
+    {
+      "id": "evening",
+      "src": "assets/world/table-v2/evening.webp",
+      "width": 1670,
+      "height": 941
+    },
+    {
+      "id": "night",
+      "src": "assets/world/table-v2/night.webp",
+      "width": 1670,
+      "height": 941
+    }
+  ],
+  "layers": {
+    "counterTopNormalizedY": 0.6325,
+    "customerStage": {
+      "left": 0.14,
+      "top": 0.05,
+      "width": 0.35,
+      "height": 0.6
+    },
+    "receiptSafeArea": {
+      "left": 0.775,
+      "top": 0.06,
+      "width": 0.21,
+      "height": 0.67
+    },
+    "groceryStage": {
+      "left": 0.28,
+      "top": 0.645,
+      "width": 0.47,
+      "height": 0.325
+    }
+  },
+  "dogs": [
+    {
+      "id": "dog-01",
+      "src": "assets/dogs/dog-01.webp",
+      "placement": "floor behind counter, beside owner; never countertop"
+    }
+  ],
+  "notes": "Expanded checkout surface. Equipment contained in left25% of image; full purchase silhouettes are packed inside free worktop x28–75%, y64–97%.",
+  "layoutVersion": 2
+}

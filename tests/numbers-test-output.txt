@@ -1,0 +1,20 @@
+✔ independent fixtures: standalone and noun-bound forms across every magnitude (2.470958ms)
+✔ attested optional нэг is accepted at the correct hundred/thousand position (1.270917ms)
+✔ нэгэн is contextual: compound one, x01 variation and singleton lower groups (0.173375ms)
+✔ normalization tolerates only case, whitespace and one harmless final stop (0.247292ms)
+✔ words and Mongolian Cyrillic are mandatory; no digits, symbols or transliteration (0.235333ms)
+✔ wrong bound forms cannot pass even when their numerical value is unchanged (0.216291ms)
+✔ wrong amounts, ordering and missing words are rejected without fuzzy acceptance (0.13975ms)
+✔ modes require their own exact grammar and currency presence (0.208583ms)
+✔ diagnostics provide useful Russian guidance and word-level differences (1.016625ms)
+✔ zero is optional in gameplay but both documented words are accepted (0.17275ms)
+✔ range and mode validation prevent silently spelling an invalid amount (0.395333ms)
+✔ every amount through 999999 has the correct numerical value in both modes (59510.869333ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59601.026292

@@ -1,0 +1,22 @@
+<!-- Only for the separate cashier game, mongol-cashier. Paste in a T123 block. -->
+<style>
+#mongol-cashier-host{position:fixed;inset:0;z-index:100000;background:#203f35;width:100%;height:100vh;height:100dvh;overflow:hidden}
+#mongol-cashier-frame{display:block;width:100%;height:100%;border:0;background:#203f35}
+#mongol-cashier-connecting{position:absolute;inset:0;display:grid;place-content:center;gap:15px;text-align:center;background:#203f35;color:#fff1d0;font-family:Georgia,serif}
+#mongol-cashier-connecting strong{font-size:clamp(28px,5vw,46px);font-weight:700}
+#mongol-cashier-connecting span{font-size:16px;color:#e3cc9c}
+#mongol-cashier-host.mc-connected #mongol-cashier-connecting{display:none}
+body.mc-cashier-page{margin:0!important;overflow:hidden!important}
+</style>
+<div id="mongol-cashier-host">
+  <div id="mongol-cashier-connecting" role="status"><strong>Монгольский магазин</strong><span>Открываем двери…</span></div>
+  <iframe id="mongol-cashier-frame" title="Кассир — Монгольский магазин" src="https://monsheri12-ui.github.io/mongol-cashier/?v=1.1.0" allow="autoplay; fullscreen" allowfullscreen loading="eager"></iframe>
+</div>
+<script>
+(function(){
+  var host=document.getElementById('mongol-cashier-host');
+  var frame=document.getElementById('mongol-cashier-frame');
+  document.body.classList.add('mc-cashier-page');
+  frame.addEventListener('load',function(){host.classList.add('mc-connected');},{once:true});
+})();
+</script>

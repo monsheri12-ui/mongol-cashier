@@ -1,0 +1,54 @@
+✔ catalog IDs, prices and every prescribed basket are valid and convertible (1.026792ms)
+✔ all integer targets 10–40 produce exact unique queues in every shift (8.734875ms)
+✔ morning has runners, then dog walkers, then strictly interleaved office workers and pupils (2.387708ms)
+✔ fresh and repeat-visit baskets have exact arithmetic, valid quantities and converter-safe totals (78.576291ms)
+✔ several errors and one successful retry count as one completed receipt with errors (1.293917ms)
+✔ correct double submit is idempotent and final payment ends the shift exactly once (0.86725ms)
+✔ whitespace-only submissions never create an attempt or change progress/draft (0.427583ms)
+✔ practice resets its own attempts and does not mutate source shift or stored history (0.58725ms)
+✔ answer modes are copied per receipt and remain fixed after settings change (0.245292ms)
+✔ product-language preference defaults to Russian and captures all Mongolian catalog names (4.915584ms)
+✔ Mongolian product names survive settings changes, saved history and isolated practice (0.525417ms)
+✔ world timeline follows dawn/day/evening/night boundaries and clamps progress (0.315292ms)
+✔ full Mongolian receipt overrides Russian product preference without changing answers or amounts (7.608167ms)
+✔ three language choices remain distinct, including legacy saved product-only receipts (0.148292ms)
+✔ all 47 catalog items have localized trade units in a full Mongolian receipt (0.148167ms)
+✔ full receipt language survives history and practice independently of new menu settings (2.347583ms)
+✔ real atlas alpha bounds cover every catalog SKU and are usable normalized rectangles (0.661667ms)
+▶ checkout surfaces fit the visible tabletop and leave viewport edges and receipt cards clear
+  ✔ phone 390×844 (0.331292ms)
+  ✔ tablet 855×774 (0.088083ms)
+  ✔ desktop 1440×900 (0.182208ms)
+  ✔ large desktop 1920×1080 (0.719791ms)
+  ✔ ultrawide 2560×1080 (0.075042ms)
+✔ checkout surfaces fit the visible tabletop and leave viewport edges and receipt cards clear (2.05925ms)
+▶ quantity two creates exactly two independently positioned banana bunches at every viewport
+  ✔ phone (1.600792ms)
+  ✔ tablet (0.407917ms)
+  ✔ desktop (0.242666ms)
+  ✔ large desktop (0.187042ms)
+  ✔ ultrawide (0.146541ms)
+✔ quantity two creates exactly two independently positioned banana bunches at every viewport (3.00075ms)
+▶ all 100 actual baskets keep full silhouettes inside the v2 tabletop without overlaps
+  ✔ phone (7.870083ms)
+  ✔ tablet (4.278875ms)
+  ✔ desktop (4.130084ms)
+  ✔ large desktop (2.985417ms)
+  ✔ ultrawide (2.689417ms)
+✔ all 100 actual baskets keep full silhouettes inside the v2 tabletop without overlaps (22.383667ms)
+▶ repeat-visit generated baskets also fit across viewports with the real product aspect bounds
+  ✔ phone (6.761042ms)
+  ✔ tablet (3.82375ms)
+  ✔ desktop (4.452208ms)
+  ✔ large desktop (4.262333ms)
+  ✔ ultrawide (3.67025ms)
+✔ repeat-visit generated baskets also fit across viewports with the real product aspect bounds (28.444666ms)
+✔ empty baskets produce no physical units (0.1245ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 167.432542

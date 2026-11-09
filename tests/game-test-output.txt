@@ -1,0 +1,20 @@
+✔ catalog IDs, prices and every prescribed basket are valid and convertible (2.013084ms)
+✔ all integer targets 10–40 produce exact unique queues in every shift (9.606459ms)
+✔ morning has runners, then dog walkers, then strictly interleaved office workers and pupils (2.520333ms)
+✔ fresh and repeat-visit baskets have exact arithmetic, valid quantities and converter-safe totals (110.823417ms)
+✔ several errors and one successful retry count as one completed receipt with errors (2.766583ms)
+✔ correct double submit is idempotent and final payment ends the shift exactly once (1.722ms)
+✔ whitespace-only submissions never create an attempt or change progress/draft (0.927667ms)
+✔ practice resets its own attempts and does not mutate source shift or stored history (1.418ms)
+✔ answer modes are copied per receipt and remain fixed after settings change (0.5215ms)
+✔ product-language preference defaults to Russian and captures all Mongolian catalog names (8.951125ms)
+✔ Mongolian product names survive settings changes, saved history and isolated practice (1.025333ms)
+✔ world timeline follows dawn/day/evening/night boundaries and clamps progress (0.532084ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 222.9195

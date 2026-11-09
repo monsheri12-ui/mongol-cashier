@@ -1,0 +1,38 @@
+✔ real atlas alpha bounds cover every catalog SKU and are usable normalized rectangles (0.680291ms)
+▶ checkout surfaces fit the visible tabletop and leave viewport edges and receipt cards clear
+  ✔ phone 390×844 (0.345666ms)
+  ✔ tablet 855×774 (0.14375ms)
+  ✔ desktop 1440×900 (0.109792ms)
+  ✔ large desktop 1920×1080 (0.734875ms)
+  ✔ ultrawide 2560×1080 (0.079ms)
+✔ checkout surfaces fit the visible tabletop and leave viewport edges and receipt cards clear (2.06075ms)
+▶ quantity two creates exactly two independently positioned banana bunches at every viewport
+  ✔ phone (1.643542ms)
+  ✔ tablet (0.42275ms)
+  ✔ desktop (0.242167ms)
+  ✔ large desktop (0.234334ms)
+  ✔ ultrawide (0.191292ms)
+✔ quantity two creates exactly two independently positioned banana bunches at every viewport (3.175042ms)
+▶ all 100 actual baskets keep full silhouettes inside the v2 tabletop without overlaps
+  ✔ phone (7.23425ms)
+  ✔ tablet (4.832667ms)
+  ✔ desktop (4.979ms)
+  ✔ large desktop (3.277584ms)
+  ✔ ultrawide (3.215959ms)
+✔ all 100 actual baskets keep full silhouettes inside the v2 tabletop without overlaps (24.199625ms)
+▶ repeat-visit generated baskets also fit across viewports with the real product aspect bounds
+  ✔ phone (6.766334ms)
+  ✔ tablet (4.219417ms)
+  ✔ desktop (6.325292ms)
+  ✔ large desktop (4.849959ms)
+  ✔ ultrawide (4.393084ms)
+✔ repeat-visit generated baskets also fit across viewports with the real product aspect bounds (33.136291ms)
+✔ empty baskets produce no physical units (0.135ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 143.306875

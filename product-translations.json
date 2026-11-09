@@ -1,0 +1,324 @@
+{
+  "bread": {
+    "name_mn": "Талх",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "milk": {
+    "name_mn": "Сүү, 1 л",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269",
+      "https://www.vitafitmilk.mn/products"
+    ]
+  },
+  "eggs": {
+    "name_mn": "Өндөг, 10 ширхэг",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ],
+    "notes": "10 ширхэг — размер упаковки из исходного каталога, не число отдельных упаковок в чеке."
+  },
+  "apple": {
+    "name_mn": "Алим",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "banana": {
+    "name_mn": "Гадил (багц)",
+    "source_urls": [
+      "https://toli.gov.mn/w/OUO3tj2VcSds7zWR",
+      "https://mongoltoli.mn/search.php?opt=1&ug_id=10168&word=%D0%91%D0%90%D0%93%D0%A6"
+    ],
+    "notes": "Гадил — банан; багц — связка/набор. Скобки — редакционное уточнение единицы продажи: одна единица чека означает одну связку, а не один плод. Слова проверены отдельно; это не цитата готовой торговой карточки."
+  },
+  "water": {
+    "name_mn": "Ус, 0.5 л",
+    "source_urls": [
+      "https://nomin.mn/p/1164524"
+    ],
+    "notes": "Нейтральное «вода»; минерализация и газирование не приписываются игровому товару."
+  },
+  "juice": {
+    "name_mn": "Жимсний шүүс, 0.2 л",
+    "source_urls": [
+      "https://nomin.mn/p/1132084"
+    ],
+    "notes": "Родовое «фруктовый сок» без утверждения конкретного фрукта, процента сока или бренда."
+  },
+  "yogurt": {
+    "name_mn": "Йогурт",
+    "source_urls": [
+      "https://www.vitafitmilk.mn/products",
+      "https://www.mongolchamber.mn/resource/mongolchamber/File/2024/12/02/12sac1ks6vhqes27/%D0%98%D1%81%D1%8D%D0%B3%20%D1%81%D2%AF%D2%AF%D0%BD%20%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD.%20%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%D0%B9%D0%BD%20%D0%B5%D1%80%D3%A9%D0%BD%D1%85%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B0%D1%80%D0%B4%D0%BB%D0%B0%D0%B3%D0%B0.pdf"
+    ],
+    "notes": "Йогурт сохранён как отдельный вид продукта; кефир не переименован в тараг."
+  },
+  "bun": {
+    "name_mn": "Нарийн боов",
+    "source_urls": [
+      "https://goodpricemarket.mn/mn/product/jin-tuul-jijig-bulochka-8656021175108"
+    ],
+    "notes": "Безопасное более широкое название выпечки: карточка булочки находится в категории НАРИЙН БООВ. Вид теста, начинка и сладость неизвестны."
+  },
+  "cookies": {
+    "name_mn": "Жигнэмэг",
+    "source_urls": [
+      "https://set-impex.mn/%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD/%D3%A9%D1%80%D0%BC%D3%A9%D0%BD%D1%86%D3%A9%D1%80",
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf"
+    ]
+  },
+  "chocolate": {
+    "name_mn": "Шоколад",
+    "source_urls": [
+      "https://set-impex.mn/%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD/%D3%A9%D1%80%D0%BC%D3%A9%D0%BD%D1%86%D3%A9%D1%80"
+    ]
+  },
+  "tea": {
+    "name_mn": "Цай",
+    "source_urls": [
+      "https://www.aa.tufs.ac.jp/documents/training/ilc/textbooks/2008mongolian.pdf",
+      "https://nomin.mn/corporate"
+    ]
+  },
+  "rice": {
+    "name_mn": "Цагаан будаа, 1 кг",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "flour": {
+    "name_mn": "Гурил, 1 кг",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "pasta": {
+    "name_mn": "Гоймон",
+    "source_urls": [
+      "https://set-impex.mn/%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD/%D3%A9%D1%80%D0%BC%D3%A9%D0%BD%D1%86%D3%A9%D1%80"
+    ],
+    "notes": "Родовое название макаронных изделий; не добавлено «бэлэн» (быстрого приготовления)."
+  },
+  "carrot": {
+    "name_mn": "Лууван",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "potato": {
+    "name_mn": "Төмс",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "cabbage": {
+    "name_mn": "Байцаа",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "cucumber": {
+    "name_mn": "Өргөст хэмх",
+    "source_urls": [
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf"
+    ]
+  },
+  "tomato": {
+    "name_mn": "Улаан лооль",
+    "source_urls": [
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf"
+    ]
+  },
+  "onion": {
+    "name_mn": "Сонгино",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "oil": {
+    "name_mn": "Ургамлын тос",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ],
+    "notes": "Растительное масло без уточнения подсолнечного/оливкового сорта."
+  },
+  "butter": {
+    "name_mn": "Цөцгийн тос",
+    "source_urls": [
+      "https://wwfasia.awsassets.panda.org/downloads/______1_1_1_1_1.pdf",
+      "https://legalinfo.mn/mn/detail?lawId=208065"
+    ],
+    "notes": "Сливочное масло; не шар тос (топлёное масло)."
+  },
+  "cheese": {
+    "name_mn": "Бяслаг",
+    "source_urls": [
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf",
+      "https://wwfasia.awsassets.panda.org/downloads/______1_1_1_1_1.pdf"
+    ],
+    "notes": "Общее название сыра без уточнения сорта и выдержки."
+  },
+  "sourcream": {
+    "name_mn": "Зөөхий",
+    "source_urls": [
+      "https://suu.mn/brands/authentic-sour-cream",
+      "https://nomin.mn/p/4000435",
+      "https://www.mongolchamber.mn/resource/mongolchamber/File/2024/12/02/12sac1ks6vhqes27/%D0%98%D1%81%D1%8D%D0%B3%20%D1%81%D2%AF%D2%AF%D0%BD%20%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD.%20%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%D0%B9%D0%BD%20%D0%B5%D1%80%D3%A9%D0%BD%D1%85%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B0%D1%80%D0%B4%D0%BB%D0%B0%D0%B3%D0%B0.pdf"
+    ],
+    "notes": "Для сметаны выбран современный торговый термин Зөөхий. Цөцгий отдельно обозначает сливки и не используется как безоговорочный эквивалент сметаны."
+  },
+  "salt": {
+    "name_mn": "Давс",
+    "source_urls": [
+      "https://www.chef.mn/category/ingredients"
+    ]
+  },
+  "sugar": {
+    "name_mn": "Элсэн чихэр",
+    "source_urls": [
+      "https://darkhan-uul.nso.mn/article/9269"
+    ]
+  },
+  "oatmeal": {
+    "name_mn": "Овьёосны нэвс",
+    "source_urls": [
+      "https://monfoodland.mn/product/%D0%BE%D0%B2%D1%8C%D1%91%D0%BE%D1%81%D0%BD%D1%8B-%D0%BD%D1%8D%D0%B2%D1%81-500%D0%B3%D1%80/"
+    ],
+    "notes": "Название именно овсяных хлопьев на странице производителя; не просто злак и не готовая каша. Сорт и требуемая варка не уточнены."
+  },
+  "tissues": {
+    "name_mn": "Хуурай салфетка",
+    "source_urls": [
+      "https://nomin.mn/p/1186298"
+    ],
+    "notes": "Сухие бумажные салфетки: в карточке указан материал 100% бумага. Не влажные салфетки и не кухонное полотенце."
+  },
+  "dishsoap": {
+    "name_mn": "Аяга таваг угаагч шингэн",
+    "source_urls": [
+      "https://khantaishir.mn/products/210930/555296"
+    ],
+    "notes": "Средство для ручного мытья посуды; не стиральный порошок и не посудомоечная машина."
+  },
+  "sponge": {
+    "name_mn": "Аяга таваг угаагч порлон",
+    "source_urls": [
+      "https://onmart.mn/product/9b2897dc-a94f-4428-acfc-dd6de1baba1c"
+    ],
+    "notes": "Губки для посуды. Материал/абразивность игрового товара отдельно не утверждаются."
+  },
+  "toiletpaper": {
+    "name_mn": "Ариун цэврийн цаас",
+    "source_urls": [
+      "https://nomin.mn/corporate"
+    ]
+  },
+  "wafer": {
+    "name_mn": "Өрмөнцөр",
+    "source_urls": [
+      "https://set-impex.mn/%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD/%D3%A9%D1%80%D0%BC%D3%A9%D0%BD%D1%86%D3%A9%D1%80"
+    ]
+  },
+  "crackers": {
+    "name_mn": "Крекер жигнэмэг",
+    "source_urls": [
+      "https://nomin.mn/p/1131109"
+    ],
+    "notes": "Реальный монгольский торговый термин крекера; не заменён сухарями/поджаренным хлебом."
+  },
+  "jam": {
+    "name_mn": "Жимсний чанамал",
+    "source_urls": [
+      "https://legalinfo.mn/mn/detail?lawId=208065"
+    ],
+    "notes": "Фруктовое варенье/джем без уточнения вида плодов и консистенции."
+  },
+  "lentils": {
+    "name_mn": "Сэвэг зарам",
+    "source_urls": [
+      "https://www.chef.mn/category/ingredients"
+    ],
+    "notes": "Чечевица; не вандуй (горох), не хөц будаа (перловка). Цвет сорта неизвестен."
+  },
+  "frozen_dumplings": {
+    "name_mn": "Хөлдөөсөн банш",
+    "source_urls": [
+      "https://trusttrade.mn/products"
+    ],
+    "notes": "Банш — небольшие изделия из теста с начинкой; слово хөлдөөсөн сохраняет замороженное состояние из исходного каталога. Конкретная рецептура пельменей не утверждается."
+  },
+  "cottagecheese": {
+    "name_mn": "Ээдэм",
+    "source_urls": [
+      "https://ikon.mn/n/p9m",
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf",
+      "https://wwfasia.awsassets.panda.org/downloads/______1_1_1_1_1.pdf"
+    ],
+    "notes": "Осторожная учебная подпись для свежей творожной массы: ээдэм — сгусток молока после отделения сыворотки. Это родовое соответствие, не подтверждение конкретного российского творога или зернёного cottage cheese. В современной технологической литературе готовый кисломолочный творожный продукт также называется аарц; традиционный аарц может отличаться. Не ааруул и не ээзгий."
+  },
+  "kefir": {
+    "name_mn": "Кефир, 1 л",
+    "source_urls": [
+      "https://www.mongolchamber.mn/resource/mongolchamber/File/2024/12/02/12sac1ks6vhqes27/%D0%98%D1%81%D1%8D%D0%B3%20%D1%81%D2%AF%D2%AF%D0%BD%20%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD.%20%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%D0%B9%D0%BD%20%D0%B5%D1%80%D3%A9%D0%BD%D1%85%D0%B8%D0%B9%20%D1%88%D0%B0%D0%B0%D1%80%D0%B4%D0%BB%D0%B0%D0%B3%D0%B0.pdf",
+      "https://wwfasia.awsassets.panda.org/downloads/______1_1_1_1_1.pdf"
+    ],
+    "notes": "Кефир — отдельный термин в технологическом справочнике 2023 года и в тексте проекта MNS 4229:2024. Не смешивается с йогуртом, тараг или хоормог. Статус утверждения проекта стандарта не заявляется."
+  },
+  "pear": {
+    "name_mn": "Лийр",
+    "source_urls": [
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf"
+    ]
+  },
+  "orange": {
+    "name_mn": "Жүрж",
+    "source_urls": [
+      "https://or.mohs.gov.mn/new/wp-content/uploads/2022/10/%D0%A5%D0%BE%D0%BE%D0%BB-%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9-%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD%D0%B8%D0%B9-%D0%B8%D0%BB%D1%87%D0%BB%D1%8D%D0%B3-%D1%82%D0%BE%D0%BE%D1%86%D0%BE%D1%85-%D0%B0%D1%80%D0%B3%D0%B0%D1%87%D0%BB%D0%B0%D0%BB.pdf"
+    ]
+  },
+  "cereal": {
+    "name_mn": "Үр тарианы өглөөний хоол",
+    "source_urls": [
+      "https://nomin.mn/p/1344686"
+    ],
+    "notes": "Безопасная родовая подпись «злаковый завтрак». Источник явно связывает Өглөөний хоол с Cereal. Не утверждаются кукурузные хлопья, гранола, шоколад или форма зерна."
+  },
+  "soap": {
+    "name_mn": "Саван",
+    "source_urls": [
+      "https://goo.mn/products?category_id=13038"
+    ],
+    "notes": "Общее название мыла; косметические свойства/аромат не приписываются."
+  },
+  "toothpaste": {
+    "name_mn": "Шүдний оо",
+    "source_urls": [
+      "https://mongnis.mn/product/5370"
+    ]
+  },
+  "coffee": {
+    "name_mn": "Кофе",
+    "source_urls": [
+      "https://set-impex.mn/%D0%B1%D2%AF%D1%82%D1%8D%D1%8D%D0%B3%D0%B4%D1%8D%D1%85%D2%AF%D2%AF%D0%BD/%D3%A9%D1%80%D0%BC%D3%A9%D0%BD%D1%86%D3%A9%D1%80",
+      "https://www.aa.tufs.ac.jp/documents/training/ilc/textbooks/2008mongolian.pdf"
+    ],
+    "notes": "Упакованный кофе; растворимый/молотый/зерновой тип неизвестен."
+  },
+  "petfood": {
+    "name_mn": "Нохойн хоол",
+    "source_urls": [
+      "https://nomin.mn/t/94421?q=%D0%B4%D1%8D%D0%BC"
+    ],
+    "notes": "Корм для собак, без назначения кошкам и без уточнения сухой/влажный."
+  },
+  "takeaway_coffee": {
+    "name_mn": "Аягатай кофе",
+    "source_urls": [
+      "https://take.mn/mn",
+      "https://www.aa.tufs.ac.jp/documents/training/ilc/textbooks/2008mongolian.pdf"
+    ],
+    "notes": "Безопасная описательная подпись «кофе в стакане/чашке» для готового кофе с собой. Аягатай кофены багц наблюдалось в индексированном каталоге take.mn; полная текущая страница динамическая. Способ приготовления и добавление молока не утверждаются."
+  }
+}

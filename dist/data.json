@@ -1,0 +1,2951 @@
+{
+  "products": [
+    {
+      "id": "bread",
+      "name_ru": "Хлеб",
+      "unit": "бух.",
+      "price": 3500,
+      "name_mn": "Талх"
+    },
+    {
+      "id": "milk",
+      "name_ru": "Молоко, 1 л",
+      "unit": "пак.",
+      "price": 4900,
+      "name_mn": "Сүү, 1 л"
+    },
+    {
+      "id": "eggs",
+      "name_ru": "Яйца, 10 шт.",
+      "unit": "уп.",
+      "price": 12500,
+      "name_mn": "Өндөг, 10 ширхэг"
+    },
+    {
+      "id": "apple",
+      "name_ru": "Яблоки",
+      "unit": "шт.",
+      "price": 1800,
+      "name_mn": "Алим"
+    },
+    {
+      "id": "banana",
+      "name_ru": "Бананы, связка",
+      "unit": "связ.",
+      "price": 2200,
+      "name_mn": "Гадил (багц)"
+    },
+    {
+      "id": "water",
+      "name_ru": "Вода, 0,5 л",
+      "unit": "бут.",
+      "price": 1500,
+      "name_mn": "Ус, 0.5 л"
+    },
+    {
+      "id": "juice",
+      "name_ru": "Сок, 0,2 л",
+      "unit": "пак.",
+      "price": 1900,
+      "name_mn": "Жимсний шүүс, 0.2 л"
+    },
+    {
+      "id": "yogurt",
+      "name_ru": "Йогурт",
+      "unit": "шт.",
+      "price": 2400,
+      "name_mn": "Йогурт"
+    },
+    {
+      "id": "bun",
+      "name_ru": "Булочка",
+      "unit": "шт.",
+      "price": 1700,
+      "name_mn": "Нарийн боов"
+    },
+    {
+      "id": "cookies",
+      "name_ru": "Печенье",
+      "unit": "уп.",
+      "price": 4200,
+      "name_mn": "Жигнэмэг"
+    },
+    {
+      "id": "chocolate",
+      "name_ru": "Шоколад",
+      "unit": "плит.",
+      "price": 5500,
+      "name_mn": "Шоколад"
+    },
+    {
+      "id": "tea",
+      "name_ru": "Чай",
+      "unit": "уп.",
+      "price": 8900,
+      "name_mn": "Цай"
+    },
+    {
+      "id": "rice",
+      "name_ru": "Рис, 1 кг",
+      "unit": "пак.",
+      "price": 7500,
+      "name_mn": "Цагаан будаа, 1 кг"
+    },
+    {
+      "id": "flour",
+      "name_ru": "Мука, 1 кг",
+      "unit": "пак.",
+      "price": 4800,
+      "name_mn": "Гурил, 1 кг"
+    },
+    {
+      "id": "pasta",
+      "name_ru": "Макароны",
+      "unit": "уп.",
+      "price": 3900,
+      "name_mn": "Гоймон"
+    },
+    {
+      "id": "carrot",
+      "name_ru": "Морковь",
+      "unit": "шт.",
+      "price": 900,
+      "name_mn": "Лууван"
+    },
+    {
+      "id": "potato",
+      "name_ru": "Картофель",
+      "unit": "кг",
+      "price": 2000,
+      "name_mn": "Төмс"
+    },
+    {
+      "id": "cabbage",
+      "name_ru": "Капуста",
+      "unit": "кочан",
+      "price": 4200,
+      "name_mn": "Байцаа"
+    },
+    {
+      "id": "cucumber",
+      "name_ru": "Огурцы",
+      "unit": "шт.",
+      "price": 1600,
+      "name_mn": "Өргөст хэмх"
+    },
+    {
+      "id": "tomato",
+      "name_ru": "Помидоры",
+      "unit": "шт.",
+      "price": 2100,
+      "name_mn": "Улаан лооль"
+    },
+    {
+      "id": "onion",
+      "name_ru": "Лук",
+      "unit": "шт.",
+      "price": 900,
+      "name_mn": "Сонгино"
+    },
+    {
+      "id": "oil",
+      "name_ru": "Растительное масло",
+      "unit": "бут.",
+      "price": 14500,
+      "name_mn": "Ургамлын тос"
+    },
+    {
+      "id": "butter",
+      "name_ru": "Сливочное масло",
+      "unit": "уп.",
+      "price": 9200,
+      "name_mn": "Цөцгийн тос"
+    },
+    {
+      "id": "cheese",
+      "name_ru": "Сыр",
+      "unit": "уп.",
+      "price": 11900,
+      "name_mn": "Бяслаг"
+    },
+    {
+      "id": "sourcream",
+      "name_ru": "Сметана",
+      "unit": "шт.",
+      "price": 3600,
+      "name_mn": "Зөөхий"
+    },
+    {
+      "id": "salt",
+      "name_ru": "Соль",
+      "unit": "уп.",
+      "price": 1500,
+      "name_mn": "Давс"
+    },
+    {
+      "id": "sugar",
+      "name_ru": "Сахар",
+      "unit": "уп.",
+      "price": 4900,
+      "name_mn": "Элсэн чихэр"
+    },
+    {
+      "id": "oatmeal",
+      "name_ru": "Овсяные хлопья",
+      "unit": "уп.",
+      "price": 6700,
+      "name_mn": "Овьёосны нэвс"
+    },
+    {
+      "id": "tissues",
+      "name_ru": "Бумажные салфетки",
+      "unit": "уп.",
+      "price": 2800,
+      "name_mn": "Хуурай салфетка"
+    },
+    {
+      "id": "dishsoap",
+      "name_ru": "Средство для посуды",
+      "unit": "бут.",
+      "price": 6900,
+      "name_mn": "Аяга таваг угаагч шингэн"
+    },
+    {
+      "id": "sponge",
+      "name_ru": "Губки для посуды",
+      "unit": "уп.",
+      "price": 2200,
+      "name_mn": "Аяга таваг угаагч порлон"
+    },
+    {
+      "id": "toiletpaper",
+      "name_ru": "Туалетная бумага",
+      "unit": "уп.",
+      "price": 4600,
+      "name_mn": "Ариун цэврийн цаас"
+    },
+    {
+      "id": "wafer",
+      "name_ru": "Вафли",
+      "unit": "уп.",
+      "price": 2900,
+      "name_mn": "Өрмөнцөр"
+    },
+    {
+      "id": "crackers",
+      "name_ru": "Крекеры",
+      "unit": "уп.",
+      "price": 2600,
+      "name_mn": "Крекер жигнэмэг"
+    },
+    {
+      "id": "jam",
+      "name_ru": "Варенье",
+      "unit": "бан.",
+      "price": 8800,
+      "name_mn": "Жимсний чанамал"
+    },
+    {
+      "id": "lentils",
+      "name_ru": "Чечевица",
+      "unit": "уп.",
+      "price": 6200,
+      "name_mn": "Сэвэг зарам"
+    },
+    {
+      "id": "frozen_dumplings",
+      "name_ru": "Замороженные пельмени",
+      "unit": "уп.",
+      "price": 16500,
+      "name_mn": "Хөлдөөсөн банш"
+    },
+    {
+      "id": "cottagecheese",
+      "name_ru": "Творог",
+      "unit": "уп.",
+      "price": 4100,
+      "name_mn": "Ээдэм"
+    },
+    {
+      "id": "kefir",
+      "name_ru": "Кефир, 1 л",
+      "unit": "бут.",
+      "price": 3800,
+      "name_mn": "Кефир, 1 л"
+    },
+    {
+      "id": "pear",
+      "name_ru": "Груши",
+      "unit": "шт.",
+      "price": 2600,
+      "name_mn": "Лийр"
+    },
+    {
+      "id": "orange",
+      "name_ru": "Апельсины",
+      "unit": "шт.",
+      "price": 2300,
+      "name_mn": "Жүрж"
+    },
+    {
+      "id": "cereal",
+      "name_ru": "Хлопья для завтрака",
+      "unit": "уп.",
+      "price": 12500,
+      "name_mn": "Үр тарианы өглөөний хоол"
+    },
+    {
+      "id": "soap",
+      "name_ru": "Мыло",
+      "unit": "шт.",
+      "price": 2700,
+      "name_mn": "Саван"
+    },
+    {
+      "id": "toothpaste",
+      "name_ru": "Зубная паста",
+      "unit": "шт.",
+      "price": 6500,
+      "name_mn": "Шүдний оо"
+    },
+    {
+      "id": "coffee",
+      "name_ru": "Кофе",
+      "unit": "уп.",
+      "price": 17900,
+      "name_mn": "Кофе"
+    },
+    {
+      "id": "petfood",
+      "name_ru": "Корм для собак",
+      "unit": "уп.",
+      "price": 7900,
+      "name_mn": "Нохойн хоол"
+    },
+    {
+      "id": "takeaway_coffee",
+      "name_ru": "Кофе с собой",
+      "unit": "стак.",
+      "price": 4500,
+      "name_mn": "Аягатай кофе"
+    }
+  ],
+  "customers": [
+    {
+      "id": "npc-001",
+      "age": 8,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка с жёлтым рюкзаком",
+      "appearance": "Две короткие косички, круглое лицо, большие тёмные глаза; горчичный свитер, жёлтый рюкзак.",
+      "expression": "Радость",
+      "expressionDescription": "Широко раскрытые глаза, приподнятые щёки, открытая улыбка, живая прямая посадка головы.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bun",
+          "quantity": 2
+        },
+        {
+          "productId": "juice",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-002",
+      "age": 10,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка в лиловой куртке",
+      "appearance": "Прямые волосы до плеч с чёлкой, овальное лицо; лиловая куртка и серый шарф.",
+      "expression": "Робость",
+      "expressionDescription": "Подбородок чуть опущен, взгляд снизу вверх, внутренние уголки бровей немного подняты, маленький закрытый рот.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "apple",
+          "quantity": 1
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-003",
+      "age": 7,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка с зелёной заколкой",
+      "appearance": "Короткое каре, мягкие щёки; коралловый кардиган и зелёная заколка.",
+      "expression": "Любопытство",
+      "expressionDescription": "Брови подняты, взгляд внимательный, губы немного округлены. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-004",
+      "age": 9,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка в полосатом джемпере",
+      "appearance": "Длинный хвост, веснушки на носу; бирюзовый джемпер в тонкую полоску.",
+      "expression": "Сосредоточенность",
+      "expressionDescription": "Брови слегка сведены, взгляд собранный, губы сомкнуты ровной линией. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-005",
+      "age": 11,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка с синим ободком",
+      "appearance": "Густые волосы ниже плеч, вытянутое лицо; кремовая толстовка и синий ободок.",
+      "expression": "Недовольство",
+      "expressionDescription": "Между бровями небольшая складка, уголки рта опущены. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-006",
+      "age": 12,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка в джинсовой куртке",
+      "appearance": "Короткая коса через плечо, прямые брови; джинсовая куртка и клетчатая сумка.",
+      "expression": "Задумчивость",
+      "expressionDescription": "Брови немного несимметричны, губы слегка поджаты, взгляд ищущий. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "banana",
+          "quantity": 2
+        },
+        {
+          "productId": "cereal",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-007",
+      "age": 8,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка с красным шарфом",
+      "appearance": "Два низких хвостика, улыбка с щербинкой; серая куртка и красный шарф.",
+      "expression": "Смущение",
+      "expressionDescription": "Взгляд мягкий, внутренние уголки бровей приподняты, небольшая скованная полуулыбка. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 2
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-008",
+      "age": 10,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка в мятном жилете",
+      "appearance": "Тёмное каре без чёлки, ямочки на щеках; мятный стёганый жилет.",
+      "expression": "Удивление",
+      "expressionDescription": "Брови подняты высоко, глаза расширены, рот чуть приоткрыт. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "orange",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 3
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-009",
+      "age": 9,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка с оранжевой сумкой",
+      "appearance": "Кудрявые волосы до подбородка, широкая улыбка; тёмно-синий свитер и оранжевая сумка.",
+      "expression": "Спокойствие",
+      "expressionDescription": "Веки и брови расслаблены, губы сомкнуты без улыбки, щёки ненапряжённые. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "juice",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-010",
+      "age": 11,
+      "gender": "female",
+      "group": "children",
+      "title": "Девочка в круглых очках",
+      "appearance": "Высокий хвост, круглые тонкие очки; бордовая толстовка.",
+      "expression": "Усталость",
+      "expressionDescription": "Веки опущены, взгляд тяжёлый, рот расслаблен, уголки губ слегка вниз. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-011",
+      "age": 11,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в красной толстовке",
+      "appearance": "Короткие торчащие волосы, овальное детское лицо; красная толстовка и тёмный рюкзак.",
+      "expression": "Сонливость",
+      "expressionDescription": "Тяжёлые полуприкрытые веки, расслабленные брови, чуть приоткрытый рот, голова опущена, плечи слегка поникли.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 2
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-012",
+      "age": 7,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в зелёной куртке",
+      "appearance": "Ровная короткая чёлка, круглые щёки; травяная куртка и маленький рюкзак.",
+      "expression": "Растерянность",
+      "expressionDescription": "Брови подняты в середине, рот чуть разомкнут, взгляд ищет подсказку. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "banana",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-013",
+      "age": 9,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик с синей кепкой",
+      "appearance": "Волнистые волосы, курносый нос; синяя кепка козырьком вперёд и светлый свитер.",
+      "expression": "Довольство",
+      "expressionDescription": "Веки немного прищурены, уголки губ мягко приподняты, щёки расслаблены. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "banana",
+          "quantity": 2
+        },
+        {
+          "productId": "cheese",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-014",
+      "age": 12,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в сером жилете",
+      "appearance": "Короткий боковой пробор, вытянутое лицо; серый жилет поверх горчичной рубашки.",
+      "expression": "Настороженность",
+      "expressionDescription": "Глаза немного сужены, брови слегка сведены, губы собраны. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-015",
+      "age": 10,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в полосатом шарфе",
+      "appearance": "Пышная чёлка, тонкие брови; бирюзовая куртка и полосатый шарф.",
+      "expression": "Скепсис",
+      "expressionDescription": "Одна бровь поднята выше другой, губы сомкнуты с лёгкой асимметрией. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cereal",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-016",
+      "age": 8,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в круглых очках",
+      "appearance": "Очень короткая стрижка, круглые очки; тёмно-зелёная толстовка.",
+      "expression": "Мечтательность",
+      "expressionDescription": "Веки расслаблены, взгляд рассеян, губы мягко разомкнуты. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        },
+        {
+          "productId": "cheese",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-017",
+      "age": 11,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в оранжевой ветровке",
+      "appearance": "Вьющиеся волосы, веснушки; оранжевая ветровка и холщовый рюкзак.",
+      "expression": "Озабоченность",
+      "expressionDescription": "Брови сведены и немного подняты в середине, губы напряжены. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bun",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-018",
+      "age": 9,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик с чёрной сумкой",
+      "appearance": "Зачёсанные набок волосы, спокойный взгляд; кремовый кардиган и чёрная сумка через плечо.",
+      "expression": "Уверенность",
+      "expressionDescription": "Прямой собранный взгляд, ровные брови, губы спокойно сомкнуты. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-019",
+      "age": 10,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в клетчатой рубашке",
+      "appearance": "Короткие густые волосы, широкое лицо; красно-синяя рубашка поверх футболки.",
+      "expression": "Доброжелательность",
+      "expressionDescription": "Взгляд открытый, брови мягкие, небольшая закрытая улыбка. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "juice",
+          "quantity": 1
+        },
+        {
+          "productId": "pear",
+          "quantity": 2
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-020",
+      "age": 12,
+      "gender": "male",
+      "group": "children",
+      "title": "Мальчик в сливовой толстовке",
+      "appearance": "Длинная прядь на лбу, узкое лицо; сливовая толстовка и светлый рюкзак.",
+      "expression": "Волнение",
+      "expressionDescription": "Глаза раскрыты, брови немного подняты, нижняя губа слегка напряжена. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-021",
+      "age": 16,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка в зелёной куртке",
+      "appearance": "Длинная чёрная коса, прямые брови; оливковая куртка и белая футболка.",
+      "expression": "Любопытство",
+      "expressionDescription": "Брови приподняты, внимательные глаза раскрыты чуть шире, губы округлены, голова отчётливо наклонена набок.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "wafer",
+          "quantity": 1
+        },
+        {
+          "productId": "chocolate",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-022",
+      "age": 14,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка с коротким каре",
+      "appearance": "Каре до подбородка, треугольное лицо; тёмно-синий кардиган и клетчатый шарф.",
+      "expression": "Озорство",
+      "expressionDescription": "Один глаз чуть прищурен, бровь поднята, улыбка асимметрична. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "orange",
+          "quantity": 3
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-023",
+      "age": 17,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка с медной заколкой",
+      "appearance": "Волосы собраны в высокий пучок, крупные очки; песочная рубашка и медная заколка.",
+      "expression": "Строгость",
+      "expressionDescription": "Брови ровные и слегка опущены, взгляд прямой, губы сжаты. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "orange",
+          "quantity": 1
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-024",
+      "age": 13,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка в голубом худи",
+      "appearance": "Два низких хвоста, круглое лицо; голубой худи и серебристый рюкзак.",
+      "expression": "Сдержанность",
+      "expressionDescription": "Небольшая почти незаметная полуулыбка, неподвижные брови, спокойный взгляд. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-025",
+      "age": 15,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка в бордовой ветровке",
+      "appearance": "Волнистые волосы до плеч, веснушки; бордовая ветровка и зелёная сумка.",
+      "expression": "Облегчение",
+      "expressionDescription": "Веки мягко прикрыты, лоб расслаблен, губы чуть разомкнуты на выдохе. Голова прямо; взгляд направлен на кассира; плечи ровные.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-026",
+      "age": 16,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка в белой рубашке",
+      "appearance": "Короткая стрижка пикси, выразительные скулы; белая рубашка и серый жилет.",
+      "expression": "Радость",
+      "expressionDescription": "Глаза раскрыты, щёки приподняты, рот раскрыт в широкой улыбке. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "chocolate",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-027",
+      "age": 14,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка в жёлтом кардигане",
+      "appearance": "Густая чёлка, овальное лицо; жёлтый кардиган и тканевая сумка.",
+      "expression": "Сонливость",
+      "expressionDescription": "Веки тяжёлые, брови расслаблены, губы слегка разомкнуты. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "apple",
+          "quantity": 2
+        },
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-028",
+      "age": 17,
+      "gender": "female",
+      "group": "teens",
+      "title": "Девушка с полосатым шарфом",
+      "appearance": "Длинные распущенные волосы, ямочки на щеках; тёмная куртка и терракотовый шарф.",
+      "expression": "Любопытство",
+      "expressionDescription": "Брови подняты, взгляд внимательный, губы немного округлены. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bun",
+          "quantity": 1
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-029",
+      "age": 15,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в синем худи",
+      "appearance": "Объёмная волнистая чёлка, широкие брови; синий худи и серый рюкзак.",
+      "expression": "Сосредоточенность",
+      "expressionDescription": "Брови слегка сведены, взгляд собранный, губы сомкнуты ровной линией. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "juice",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-030",
+      "age": 13,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в зелёном свитере",
+      "appearance": "Короткая стрижка, мягкое округлое лицо; зелёный свитер и жёлтая сумка.",
+      "expression": "Недовольство",
+      "expressionDescription": "Между бровями небольшая складка, уголки рта опущены. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-031",
+      "age": 17,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в клетчатой рубашке",
+      "appearance": "Длинные волосы собраны сзади, вытянутое лицо; открытая клетчатая рубашка.",
+      "expression": "Задумчивость",
+      "expressionDescription": "Брови немного несимметричны, губы слегка поджаты, взгляд ищущий. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-032",
+      "age": 16,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в серой куртке",
+      "appearance": "Боковой пробор, прямоугольные очки; серая куртка и оранжевая футболка.",
+      "expression": "Смущение",
+      "expressionDescription": "Взгляд мягкий, внутренние уголки бровей приподняты, небольшая скованная полуулыбка. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "wafer",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 2
+        },
+        {
+          "productId": "pear",
+          "quantity": 2
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-033",
+      "age": 14,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в оранжевой толстовке",
+      "appearance": "Короткие кудри, веснушки на щеках; оранжевая толстовка и синяя сумка.",
+      "expression": "Удивление",
+      "expressionDescription": "Брови подняты высоко, глаза расширены, рот чуть приоткрыт. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "apple",
+          "quantity": 2
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-034",
+      "age": 15,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша в тёмном жилете",
+      "appearance": "Прямая чёлка, заметные скулы; тёмный жилет и кремовая рубашка.",
+      "expression": "Спокойствие",
+      "expressionDescription": "Веки и брови расслаблены, губы сомкнуты без улыбки, щёки ненапряжённые. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "tissues",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-035",
+      "age": 17,
+      "gender": "male",
+      "group": "teens",
+      "title": "Юноша с холщовой сумкой",
+      "appearance": "Длинная асимметричная чёлка, узкие брови; бордовый свитер и холщовая сумка.",
+      "expression": "Усталость",
+      "expressionDescription": "Веки опущены, взгляд тяжёлый, рот расслаблен, уголки губ слегка вниз. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "school_pupils",
+      "roleLabel": "Перед школой",
+      "basket": [
+        {
+          "productId": "bun",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-036",
+      "age": 23,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина с рюкзаком",
+      "appearance": "Взъерошенные чёрные волосы, дружелюбное лицо; куртка индиго, кремовая футболка и рюкзак.",
+      "expression": "Нетерпение",
+      "expressionDescription": "Одна бровь приподнята, губы плотно сжаты, взгляд настойчивый. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-037",
+      "age": 20,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в круглых очках",
+      "appearance": "Гладкий пробор, круглые очки, тонкие усы; оливковый свитер.",
+      "expression": "Растерянность",
+      "expressionDescription": "Брови подняты в середине, рот чуть разомкнут, взгляд ищет подсказку. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "carrot",
+          "quantity": 3
+        },
+        {
+          "productId": "sourcream",
+          "quantity": 1
+        },
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "jam",
+          "quantity": 1
+        },
+        {
+          "productId": "salt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-038",
+      "age": 27,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в песочной куртке",
+      "appearance": "Очень короткая стрижка, широкие скулы; песочная куртка и тёмная футболка.",
+      "expression": "Довольство",
+      "expressionDescription": "Веки немного прищурены, уголки губ мягко приподняты, щёки расслаблены. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-039",
+      "age": 25,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина с длинными волосами",
+      "appearance": "Волосы собраны в низкий хвост, узкое лицо; кирпичная рубашка и серая сумка.",
+      "expression": "Настороженность",
+      "expressionDescription": "Глаза немного сужены, брови слегка сведены, губы собраны. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "butter",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-040",
+      "age": 22,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в синем жилете",
+      "appearance": "Короткие кудри, улыбка с ямочками; синий стёганый жилет.",
+      "expression": "Скепсис",
+      "expressionDescription": "Одна бровь поднята выше другой, губы сомкнуты с лёгкой асимметрией. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 1
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-041",
+      "age": 29,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в зелёном пальто",
+      "appearance": "Боковой пробор, аккуратная короткая борода; тёмно-зелёное пальто.",
+      "expression": "Мечтательность",
+      "expressionDescription": "Веки расслаблены, взгляд рассеян, губы мягко разомкнуты. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "potato",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 1
+        },
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-042",
+      "age": 21,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в сером худи",
+      "appearance": "Небрежная чёлка, прямые густые брови; серый худи и бирюзовый рюкзак.",
+      "expression": "После пробежки",
+      "expressionDescription": "Внимательные раскрытые глаза, немного поднятые брови, рот приоткрыт для вдоха, корпус слегка подан вперёд.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "pear",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-043",
+      "age": 26,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в клетчатом шарфе",
+      "appearance": "Зачёсанные назад волосы, овальные очки; синяя куртка и клетчатый шарф.",
+      "expression": "Уверенность",
+      "expressionDescription": "Прямой собранный взгляд, ровные брови, губы спокойно сомкнуты. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        },
+        {
+          "productId": "cheese",
+          "quantity": 1
+        },
+        {
+          "productId": "pasta",
+          "quantity": 1
+        },
+        {
+          "productId": "orange",
+          "quantity": 3
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-044",
+      "age": 24,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина в бордовом свитере",
+      "appearance": "Короткая стрижка с высоким лбом, широкая улыбка; бордовый свитер.",
+      "expression": "Доброжелательность",
+      "expressionDescription": "Взгляд открытый, брови мягкие, небольшая закрытая улыбка. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "cereal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-045",
+      "age": 28,
+      "gender": "male",
+      "group": "young_adults",
+      "title": "Молодой мужчина с тёмной сумкой",
+      "appearance": "Волнистые волосы до ушей, лёгкая щетина; бежевая рубашка и сумка через плечо.",
+      "expression": "Волнение",
+      "expressionDescription": "Глаза раскрыты, брови немного подняты, нижняя губа слегка напряжена. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        },
+        {
+          "productId": "dishsoap",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-046",
+      "age": 27,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Женщина в красном кардигане",
+      "appearance": "Тёмные волосы собраны в свободный пучок, небольшие серьги; красный кардиган, кремовая рубашка и холщовая сумка.",
+      "expression": "Рассеянность",
+      "expressionDescription": "Взгляд отвлечён, брови чуть разошлись по высоте, губы приоткрыты. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-047",
+      "age": 19,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина с фиолетовым рюкзаком",
+      "appearance": "Короткое каре с чёлкой, круглое лицо; синяя джинсовая куртка и фиолетовый рюкзак.",
+      "expression": "Озорство",
+      "expressionDescription": "Один глаз чуть прищурен, бровь поднята, улыбка асимметрична. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "tea",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-048",
+      "age": 24,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в зелёном жакете",
+      "appearance": "Высокий хвост, выраженные скулы; зелёный жакет и белый шарф.",
+      "expression": "Строгость",
+      "expressionDescription": "Брови ровные и слегка опущены, взгляд прямой, губы сжаты. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "sugar",
+          "quantity": 1
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "soap",
+          "quantity": 1
+        },
+        {
+          "productId": "jam",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-049",
+      "age": 22,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в полосатом джемпере",
+      "appearance": "Волнистые волосы до плеч, маленькие круглые очки; кремовый полосатый джемпер.",
+      "expression": "Сдержанность",
+      "expressionDescription": "Небольшая почти незаметная полуулыбка, неподвижные брови, спокойный взгляд. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 1
+        },
+        {
+          "productId": "yogurt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-050",
+      "age": 29,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в голубом пальто",
+      "appearance": "Короткая стрижка пикси, крупные серьги-кольца; голубое пальто и рыжая сумка.",
+      "expression": "Облегчение",
+      "expressionDescription": "Веки мягко прикрыты, лоб расслаблен, губы чуть разомкнуты на выдохе. Голова слегка наклонена вправо; взгляд направлен к чеку; одно плечо чуть выше.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "salt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-051",
+      "age": 26,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина с длинной косой",
+      "appearance": "Длинная толстая коса, мягкие брови; бордовая рубашка и серый кардиган.",
+      "expression": "Радость",
+      "expressionDescription": "Глаза раскрыты, щёки приподняты, рот раскрыт в широкой улыбке. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "cottagecheese",
+          "quantity": 1
+        },
+        {
+          "productId": "butter",
+          "quantity": 1
+        },
+        {
+          "productId": "dishsoap",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-052",
+      "age": 21,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в оранжевой ветровке",
+      "appearance": "Два маленьких пучка, веснушки; оранжевая ветровка и чёрный рюкзак.",
+      "expression": "Сонливость",
+      "expressionDescription": "Веки тяжёлые, брови расслаблены, губы слегка разомкнуты. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-053",
+      "age": 25,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в песочном свитере",
+      "appearance": "Прямые волосы до плеч без чёлки, вытянутое лицо; песочный свитер и зелёная сумка.",
+      "expression": "Любопытство",
+      "expressionDescription": "Брови подняты, взгляд внимательный, губы немного округлены. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "tissues",
+          "quantity": 1
+        },
+        {
+          "productId": "flour",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-054",
+      "age": 28,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина в чёрной водолазке",
+      "appearance": "Короткие вьющиеся волосы, широкая улыбка; чёрная водолазка и жёлтый шарф.",
+      "expression": "Сосредоточенность",
+      "expressionDescription": "Брови слегка сведены, взгляд собранный, губы сомкнуты ровной линией. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "runners",
+      "roleLabel": "Утренняя пробежка",
+      "basket": [
+        {
+          "productId": "water",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-055",
+      "age": 23,
+      "gender": "female",
+      "group": "young_adults",
+      "title": "Молодая женщина с красным ободком",
+      "appearance": "Волосы ниже плеч, прямоугольные очки; сливовый кардиган и красный ободок.",
+      "expression": "Недовольство",
+      "expressionDescription": "Между бровями небольшая складка, уголки рта опущены. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "onion",
+          "quantity": 3
+        },
+        {
+          "productId": "sponge",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-056",
+      "age": 35,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в бежевом плаще",
+      "appearance": "Короткое тёмное каре, овальное лицо; бежевый плащ, бирюзовый шарф и тканевая сумка.",
+      "expression": "Сосредоточенность",
+      "expressionDescription": "Брови слегка сведены, внимательный взгляд на покупки, губы сомкнуты ровной линией, корпус собран.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "carrot",
+          "quantity": 3
+        },
+        {
+          "productId": "tea",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-057",
+      "age": 42,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в зелёной куртке",
+      "appearance": "Густые волосы собраны в высокий пучок, круглые очки; зелёная куртка.",
+      "expression": "Смущение",
+      "expressionDescription": "Взгляд мягкий, внутренние уголки бровей приподняты, небольшая скованная полуулыбка. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "coffee",
+          "quantity": 1
+        },
+        {
+          "productId": "cottagecheese",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "flour",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-058",
+      "age": 31,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина с длинной косой",
+      "appearance": "Коса через плечо, веснушки; тёмно-синий джемпер и красная сумка.",
+      "expression": "Удивление",
+      "expressionDescription": "Брови подняты высоко, глаза расширены, рот чуть приоткрыт. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "butter",
+          "quantity": 1
+        },
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        },
+        {
+          "productId": "dishsoap",
+          "quantity": 1
+        },
+        {
+          "productId": "lentils",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-059",
+      "age": 48,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в бордовом пальто",
+      "appearance": "Короткие волнистые волосы с первыми седыми прядями, широкое лицо; бордовое пальто.",
+      "expression": "Спокойствие",
+      "expressionDescription": "Веки и брови расслаблены, губы сомкнуты без улыбки, щёки ненапряжённые. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "oil",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-060",
+      "age": 56,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в сером кардигане",
+      "appearance": "Гладкий низкий пучок, тонкие прямоугольные очки; серый кардиган и голубая блуза.",
+      "expression": "Усталость",
+      "expressionDescription": "Веки опущены, взгляд тяжёлый, рот расслаблен, уголки губ слегка вниз. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "potato",
+          "quantity": 1
+        },
+        {
+          "productId": "toothpaste",
+          "quantity": 1
+        },
+        {
+          "productId": "cucumber",
+          "quantity": 2
+        },
+        {
+          "productId": "onion",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-061",
+      "age": 38,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в джинсовой куртке",
+      "appearance": "Волосы до плеч с чёлкой, ямочки на щеках; джинсовая куртка и горчичный шарф.",
+      "expression": "Нетерпение",
+      "expressionDescription": "Одна бровь приподнята, губы плотно сжаты, взгляд настойчивый. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "flour",
+          "quantity": 1
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-062",
+      "age": 44,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в белой рубашке",
+      "appearance": "Короткая асимметричная стрижка, выразительные брови; белая рубашка и оливковый жилет.",
+      "expression": "Растерянность",
+      "expressionDescription": "Брови подняты в середине, рот чуть разомкнут, взгляд ищет подсказку. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "cabbage",
+          "quantity": 1
+        },
+        {
+          "productId": "cucumber",
+          "quantity": 3
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "oil",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-063",
+      "age": 33,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в коралловом свитере",
+      "appearance": "Высокий хвост, узкое лицо; коралловый свитер и синий рюкзак.",
+      "expression": "Довольство",
+      "expressionDescription": "Веки немного прищурены, уголки губ мягко приподняты, щёки расслаблены. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "soap",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-064",
+      "age": 51,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в тёмно-синем жакете",
+      "appearance": "Аккуратное каре с седой прядью, овальные очки; тёмно-синий жакет.",
+      "expression": "Спешка",
+      "expressionDescription": "Собранный взгляд, складка между бровями, прямые сомкнутые губы, выпрямленные плечи.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "takeaway_coffee",
+          "quantity": 1
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-065",
+      "age": 59,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина с клетчатой сумкой",
+      "appearance": "Волосы собраны в узел, мягкие щёки; коричневый кардиган и клетчатая сумка.",
+      "expression": "Скепсис",
+      "expressionDescription": "Одна бровь поднята выше другой, губы сомкнуты с лёгкой асимметрией. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "soap",
+          "quantity": 1
+        },
+        {
+          "productId": "carrot",
+          "quantity": 1
+        },
+        {
+          "productId": "onion",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-066",
+      "age": 36,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в мятной куртке",
+      "appearance": "Короткие кудри, большие тёмные глаза; мятная куртка и кремовый шарф.",
+      "expression": "Мечтательность",
+      "expressionDescription": "Веки расслаблены, взгляд рассеян, губы мягко разомкнуты. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "soap",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "cucumber",
+          "quantity": 1
+        },
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-067",
+      "age": 46,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в терракотовой рубашке",
+      "appearance": "Длинные прямые волосы, широкие скулы; терракотовая рубашка и тёмная сумка.",
+      "expression": "Озабоченность",
+      "expressionDescription": "Брови сведены и немного подняты в середине, губы напряжены. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "coffee",
+          "quantity": 1
+        },
+        {
+          "productId": "rice",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-068",
+      "age": 40,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в круглых очках",
+      "appearance": "Короткая стрижка, круглые светлые очки; горчичный джемпер и серая сумка.",
+      "expression": "Уверенность",
+      "expressionDescription": "Прямой собранный взгляд, ровные брови, губы спокойно сомкнуты. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "toiletpaper",
+          "quantity": 1
+        },
+        {
+          "productId": "cabbage",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-069",
+      "age": 54,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина в синем пальто",
+      "appearance": "Мягкие волны до плеч, серебряные серьги; синее пальто и бордовый шарф.",
+      "expression": "Доброжелательность",
+      "expressionDescription": "Взгляд открытый, брови мягкие, небольшая закрытая улыбка. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "office_workers",
+      "roleLabel": "По дороге в офис",
+      "basket": [
+        {
+          "productId": "onion",
+          "quantity": 3
+        },
+        {
+          "productId": "eggs",
+          "quantity": 1
+        },
+        {
+          "productId": "coffee",
+          "quantity": 1
+        },
+        {
+          "productId": "soap",
+          "quantity": 1
+        },
+        {
+          "productId": "apple",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-070",
+      "age": 32,
+      "gender": "female",
+      "group": "adults",
+      "title": "Женщина с зелёной сумкой",
+      "appearance": "Две тонкие косы, округлое лицо; кремовый свитер и зелёная сумка через плечо.",
+      "expression": "Волнение",
+      "expressionDescription": "Глаза раскрыты, брови немного подняты, нижняя губа слегка напряжена. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "flour",
+          "quantity": 1
+        },
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "toothpaste",
+          "quantity": 1
+        },
+        {
+          "productId": "eggs",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-071",
+      "age": 52,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина после работы",
+      "appearance": "Короткие волосы с сединой, прямоугольные очки, лёгкая щетина; тёмно-синяя куртка и серый свитер.",
+      "expression": "Недовольство",
+      "expressionDescription": "Небольшая складка между бровями, одна бровь ниже другой, уголки рта немного опущены, сдержанное ожидание.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "eggs",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 2
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-072",
+      "age": 30,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в песочной ветровке",
+      "appearance": "Короткие кудри, узкое лицо; песочная ветровка и бордовый рюкзак.",
+      "expression": "Озорство",
+      "expressionDescription": "Один глаз чуть прищурен, бровь поднята, улыбка асимметрична. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "cabbage",
+          "quantity": 1
+        },
+        {
+          "productId": "cereal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-073",
+      "age": 43,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в клетчатой рубашке",
+      "appearance": "Зачёсанные назад волосы, густые усы; красно-зелёная рубашка.",
+      "expression": "Строгость",
+      "expressionDescription": "Брови ровные и слегка опущены, взгляд прямой, губы сжаты. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 3
+        },
+        {
+          "productId": "pasta",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-074",
+      "age": 58,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в тёмном пальто",
+      "appearance": "Лысеющий лоб, круглые очки, седая борода; тёмное пальто и синий шарф.",
+      "expression": "Сдержанность",
+      "expressionDescription": "Небольшая почти незаметная полуулыбка, неподвижные брови, спокойный взгляд. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "wafer",
+          "quantity": 1
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-075",
+      "age": 37,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в зелёном жилете",
+      "appearance": "Короткая стрижка, широкое лицо без бороды; зелёный жилет и светлая рубашка.",
+      "expression": "Облегчение",
+      "expressionDescription": "Веки мягко прикрыты, лоб расслаблен, губы чуть разомкнуты на выдохе. Подбородок немного опущен; взгляд из-под бровей направлен на кассира; плечи слегка поданы вперёд.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "dishsoap",
+          "quantity": 1
+        },
+        {
+          "productId": "toiletpaper",
+          "quantity": 1
+        },
+        {
+          "productId": "flour",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-076",
+      "age": 49,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина с коричневой сумкой",
+      "appearance": "Волнистые волосы до ушей, выразительные брови; серый джемпер и кожаная сумка.",
+      "expression": "Радость",
+      "expressionDescription": "Глаза раскрыты, щёки приподняты, рот раскрыт в широкой улыбке. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "sponge",
+          "quantity": 1
+        },
+        {
+          "productId": "pasta",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-077",
+      "age": 34,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в джинсовой куртке",
+      "appearance": "Короткая борода, прямые волосы с пробором; джинсовая куртка и оранжевая футболка.",
+      "expression": "Сонливость",
+      "expressionDescription": "Веки тяжёлые, брови расслаблены, губы слегка разомкнуты. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "onion",
+          "quantity": 2
+        },
+        {
+          "productId": "salt",
+          "quantity": 1
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-078",
+      "age": 55,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в бордовом кардигане",
+      "appearance": "Седые виски, тонкие усы; бордовый кардиган и белая рубашка.",
+      "expression": "Любопытство",
+      "expressionDescription": "Брови подняты, взгляд внимательный, губы немного округлены. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "dishsoap",
+          "quantity": 1
+        },
+        {
+          "productId": "crackers",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-079",
+      "age": 41,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в синем свитере",
+      "appearance": "Очень короткая стрижка, квадратное лицо; синий свитер и холщовая сумка.",
+      "expression": "Сосредоточенность",
+      "expressionDescription": "Брови слегка сведены, взгляд собранный, губы сомкнуты ровной линией. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "flour",
+          "quantity": 1
+        },
+        {
+          "productId": "banana",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "npc-080",
+      "age": 47,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина с зелёным шарфом",
+      "appearance": "Длинные волосы собраны сзади, лёгкая щетина; коричневая куртка и зелёный шарф.",
+      "expression": "Недовольство",
+      "expressionDescription": "Между бровями небольшая складка, уголки рта опущены. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "cucumber",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-081",
+      "age": 39,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в серой толстовке",
+      "appearance": "Короткая густая чёлка, ямочки на щеках; серая толстовка и синяя сумка.",
+      "expression": "Задумчивость",
+      "expressionDescription": "Брови немного несимметричны, губы слегка поджаты, взгляд ищущий. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        },
+        {
+          "productId": "butter",
+          "quantity": 1
+        },
+        {
+          "productId": "chocolate",
+          "quantity": 1
+        },
+        {
+          "productId": "toothpaste",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-082",
+      "age": 57,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в песочном пальто",
+      "appearance": "Седой боковой пробор, прямоугольные очки; песочное пальто и тёмный шарф.",
+      "expression": "Смущение",
+      "expressionDescription": "Взгляд мягкий, внутренние уголки бровей приподняты, небольшая скованная полуулыбка. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "eggs",
+          "quantity": 1
+        },
+        {
+          "productId": "sponge",
+          "quantity": 1
+        },
+        {
+          "productId": "cereal",
+          "quantity": 1
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-083",
+      "age": 45,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в оливковой рубашке",
+      "appearance": "Короткие волнистые волосы, аккуратная борода; оливковая рубашка и серый жилет.",
+      "expression": "Удивление",
+      "expressionDescription": "Брови подняты высоко, глаза расширены, рот чуть приоткрыт. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "sourcream",
+          "quantity": 1
+        },
+        {
+          "productId": "cabbage",
+          "quantity": 1
+        },
+        {
+          "productId": "cereal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-084",
+      "age": 50,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина с клетчатым шарфом",
+      "appearance": "Короткие волосы с сединой, широкая улыбка; тёмная куртка и клетчатый шарф.",
+      "expression": "Спокойствие",
+      "expressionDescription": "Веки и брови расслаблены, губы сомкнуты без улыбки, щёки ненапряжённые. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        },
+        {
+          "productId": "sponge",
+          "quantity": 1
+        },
+        {
+          "productId": "water",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-085",
+      "age": 53,
+      "gender": "male",
+      "group": "adults",
+      "title": "Мужчина в синем жилете",
+      "appearance": "Лысая голова, круглые очки и усы; синий стёганый жилет поверх кремового свитера.",
+      "expression": "Усталость",
+      "expressionDescription": "Веки опущены, взгляд тяжёлый, рот расслаблен, уголки губ слегка вниз. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "tissues",
+          "quantity": 1
+        },
+        {
+          "productId": "rice",
+          "quantity": 1
+        },
+        {
+          "productId": "salt",
+          "quantity": 1
+        },
+        {
+          "productId": "cottagecheese",
+          "quantity": 1
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-086",
+      "age": 68,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в бирюзовом кардигане",
+      "appearance": "Серебристые волосы собраны в низкий пучок, тонкие круглые очки; бирюзовый кардиган и светлая блуза.",
+      "expression": "Задумчивость",
+      "expressionDescription": "Взгляд направлен немного вверх и в сторону, брови несимметричны, губы слегка поджаты, голова наклонена.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "cabbage",
+          "quantity": 1
+        },
+        {
+          "productId": "potato",
+          "quantity": 1
+        },
+        {
+          "productId": "flour",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-087",
+      "age": 72,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина с бордовым шарфом",
+      "appearance": "Короткие седые кудри, мягкие щёки; серое пальто и бордовый шарф.",
+      "expression": "Растерянность",
+      "expressionDescription": "Брови подняты в середине, рот чуть разомкнут, взгляд ищет подсказку. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "coffee",
+          "quantity": 1
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-088",
+      "age": 63,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в синем жилете",
+      "appearance": "Седая коса, прямые брови; синий стёганый жилет и песочная рубашка.",
+      "expression": "Довольство",
+      "expressionDescription": "Веки немного прищурены, уголки губ мягко приподняты, щёки расслаблены. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "kefir",
+          "quantity": 1
+        },
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "oatmeal",
+          "quantity": 1
+        },
+        {
+          "productId": "sugar",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-089",
+      "age": 76,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина с зелёной сумкой",
+      "appearance": "Белое короткое каре, прямоугольные очки; коричневый кардиган и зелёная сумка.",
+      "expression": "Настороженность",
+      "expressionDescription": "Глаза немного сужены, брови слегка сведены, губы собраны. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "cereal",
+          "quantity": 1
+        },
+        {
+          "productId": "bun",
+          "quantity": 1
+        },
+        {
+          "productId": "cookies",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-090",
+      "age": 65,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в оранжевом шарфе",
+      "appearance": "Чёрные волосы с седыми прядями до плеч, широкая улыбка; синее пальто и оранжевый шарф.",
+      "expression": "Умиротворение",
+      "expressionDescription": "Расслабленные веки и щёки, мягкая едва заметная закрытая улыбка, спокойное положение головы.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "petfood",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-091",
+      "age": 70,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в лиловом свитере",
+      "appearance": "Седой высокий пучок, овальное лицо; лиловый свитер и тканевая сумка.",
+      "expression": "Мечтательность",
+      "expressionDescription": "Веки расслаблены, взгляд рассеян, губы мягко разомкнуты. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "pear",
+          "quantity": 3
+        },
+        {
+          "productId": "apple",
+          "quantity": 3
+        }
+      ]
+    },
+    {
+      "id": "npc-092",
+      "age": 79,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в кремовом кардигане",
+      "appearance": "Очень короткие белые волосы, круглые очки; кремовый кардиган и голубая блуза.",
+      "expression": "Озабоченность",
+      "expressionDescription": "Брови сведены и немного подняты в середине, губы напряжены. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "lentils",
+          "quantity": 1
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "sponge",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-093",
+      "age": 66,
+      "gender": "female",
+      "group": "seniors",
+      "title": "Пожилая женщина в зелёном пальто",
+      "appearance": "Седые волосы собраны заколкой, выразительные скулы; зелёное пальто и клетчатая сумка.",
+      "expression": "Уверенность",
+      "expressionDescription": "Прямой собранный взгляд, ровные брови, губы спокойно сомкнуты. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "frozen_dumplings",
+          "quantity": 1
+        },
+        {
+          "productId": "cottagecheese",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-094",
+      "age": 67,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина в коричневом жилете",
+      "appearance": "Седой боковой пробор, густые усы; коричневый жилет и кремовая рубашка.",
+      "expression": "Доброжелательность",
+      "expressionDescription": "Взгляд открытый, брови мягкие, небольшая закрытая улыбка. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "dog_walkers",
+      "roleLabel": "Прогулка с собакой",
+      "basket": [
+        {
+          "productId": "salt",
+          "quantity": 1
+        },
+        {
+          "productId": "potato",
+          "quantity": 1
+        },
+        {
+          "productId": "jam",
+          "quantity": 1
+        },
+        {
+          "productId": "sponge",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-095",
+      "age": 74,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина в синей кепке",
+      "appearance": "Короткая белая борода, круглое лицо; синяя кепка и серая куртка.",
+      "expression": "Волнение",
+      "expressionDescription": "Глаза раскрыты, брови немного подняты, нижняя губа слегка напряжена. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "tea",
+          "quantity": 1
+        },
+        {
+          "productId": "carrot",
+          "quantity": 2
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        },
+        {
+          "productId": "wafer",
+          "quantity": 1
+        },
+        {
+          "productId": "pasta",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-096",
+      "age": 62,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина с зелёным шарфом",
+      "appearance": "Седые волнистые волосы до ушей, тонкие очки; тёмное пальто и зелёный шарф.",
+      "expression": "Рассеянность",
+      "expressionDescription": "Взгляд отвлечён, брови чуть разошлись по высоте, губы приоткрыты. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "wafer",
+          "quantity": 1
+        },
+        {
+          "productId": "milk",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-097",
+      "age": 78,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина в бордовом свитере",
+      "appearance": "Лысая голова, белые усы; бордовый свитер и тёмная сумка.",
+      "expression": "Озорство",
+      "expressionDescription": "Один глаз чуть прищурен, бровь поднята, улыбка асимметрична. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "cucumber",
+          "quantity": 2
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        },
+        {
+          "productId": "sourcream",
+          "quantity": 1
+        },
+        {
+          "productId": "pear",
+          "quantity": 1
+        },
+        {
+          "productId": "salt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-098",
+      "age": 69,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина в сером пиджаке",
+      "appearance": "Густые седые волосы, широкие брови; серый пиджак и синий жилет.",
+      "expression": "Строгость",
+      "expressionDescription": "Брови ровные и слегка опущены, взгляд прямой, губы сжаты. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "tomato",
+          "quantity": 3
+        },
+        {
+          "productId": "kefir",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-099",
+      "age": 71,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина в оливковой куртке",
+      "appearance": "Короткая седая стрижка, прямоугольные очки; оливковая куртка и холщовая сумка.",
+      "expression": "Сдержанность",
+      "expressionDescription": "Небольшая почти незаметная полуулыбка, неподвижные брови, спокойный взгляд. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "toothpaste",
+          "quantity": 1
+        },
+        {
+          "productId": "cucumber",
+          "quantity": 2
+        },
+        {
+          "productId": "bread",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "npc-100",
+      "age": 64,
+      "gender": "male",
+      "group": "seniors",
+      "title": "Пожилой мужчина с клетчатой сумкой",
+      "appearance": "Седая борода, волосы собраны в короткий хвост; тёмно-синий кардиган и клетчатая сумка.",
+      "expression": "Облегчение",
+      "expressionDescription": "Веки мягко прикрыты, лоб расслаблен, губы чуть разомкнуты на выдохе. Подбородок слегка приподнят; взгляд ненадолго отведён в сторону; корпус немного развёрнут.",
+      "role": "other",
+      "roleLabel": "Повседневные покупки",
+      "basket": [
+        {
+          "productId": "sponge",
+          "quantity": 1
+        },
+        {
+          "productId": "pasta",
+          "quantity": 1
+        },
+        {
+          "productId": "potato",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
