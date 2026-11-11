@@ -12,6 +12,7 @@ export function normalizeSettings(value = {}) {
     length: Math.min(40, Math.max(10, Math.round(Number(value.length) || 20))),
     mode: value.mode === 'number_only' ? 'number_only' : 'number_and_currency',
     sound: value.sound !== false,
+    hints: value.hints !== false,
     productLanguage: value.receiptLanguage === 'mn' || value.productLanguage === 'mn' ? 'mn' : 'ru',
     receiptLanguage: value.receiptLanguage === 'mn' ? 'mn' : 'ru',
   };
@@ -93,10 +94,47 @@ export function createShift(data, settings, type, visits = {}, random = Math.ran
     const total = items.reduce((sum, item) => sum + item.lineTotal, 0);
     return { id: `${id}-receipt-${index + 1}`, number: index + 1, customerId, customerTitle: customer.title, items, total, mode: clean.mode, productLanguage: clean.productLanguage, receiptLanguage: clean.receiptLanguage, attempts: [], completed: false, hasErrors: false, completedAt: null, canonical: formatAmount(total, clean.mode) };
   });
-  return { id, type, target: clean.length, mode: clean.mode, productLanguage: clean.productLanguage, receiptLanguage: clean.receiptLanguage, startedAt: now, completedAt: null, index: 0, completedCount: 0, draftAnswer: '', receipts };
+  return { id, type, target: clean.length, mode: clean.mode, productLanguage: clean.productLanguage, receiptLanguage: clean.receiptLanguage, playedMs: 0, queuePeriod: 0, startedAt: now, completedAt: null, index: 0, completedCount: 0, draftAnswer: '', receipts };
 }
 
 export function currentReceipt(shift) { return shift.receipts[shift.index]; }
+
+export function recordHint(shift) {
+  const receipt = currentReceipt(shift);
+  if (!receipt || receipt.completed) return false;
+  receipt.usedHint = true;
+  return true;
+}
+
+// Active playing time is supplied by the UI, so closed tabs and menus add no time.
+export function clockAt(shift) {
+  const intervalMs = 10 * 60_000;
+  const playedMs = Number.isFinite(shift.playedMs) ? Math.max(0, shift.playedMs) : 0;
+  const period = Math.floor(playedMs / intervalMs);
+  const types = Object.keys(SHIFTS);
+  const start = Math.max(0, types.indexOf(shift.type));
+  return { type: types[(start + period) % types.length], period, progress: (playedMs % intervalMs) / intervalMs, remainingMs: intervalMs - playedMs % intervalMs };
+}
+
+export function addPlayTime(shift, elapsedMs) {
+  if (!shift || shift.isPractice || shift.completedAt || !Number.isFinite(elapsedMs) || elapsedMs <= 0) return;
+  shift.playedMs = (Number.isFinite(shift.playedMs) ? Math.max(0, shift.playedMs) : 0) + elapsedMs;
+}
+
+// Keep the current receipt intact; only customers who have not arrived change.
+export function refreshUpcomingReceipts(shift, data, visits = {}, random = Math.random) {
+  const clock = clockAt(shift);
+  if ((shift.queuePeriod || 0) === clock.period || shift.isPractice) return false;
+  const used = new Set(shift.receipts.slice(0, shift.index + 1).map(receipt => receipt.customerId));
+  const next = createShift(data, { ...shift, length: shift.target }, clock.type, visits, random);
+  const available = next.receipts.filter(receipt => !used.has(receipt.customerId));
+  const remaining = shift.target - shift.index - 1;
+  shift.receipts.splice(shift.index + 1, remaining, ...available.slice(0, remaining).map((receipt, index) => ({
+    ...receipt, id: `${shift.id}-receipt-${shift.index + index + 2}`, number: shift.index + index + 2,
+  })));
+  shift.queuePeriod = clock.period;
+  return true;
+}
 
 export function submitAnswer(shift, rawAnswer, now = Date.now()) {
   const receipt = currentReceipt(shift);
@@ -129,8 +167,9 @@ export function advanceShift(shift) {
 
 export function summarizeShift(shift) {
   const completed = shift.receipts.filter(r => r.completed);
-  const withErrors = completed.filter(r => r.hasErrors).length;
-  return { total: completed.length, withoutErrors: completed.length - withErrors, withErrors, target: shift.target, finished: completed.length === shift.target };
+  const withHints = completed.filter(r => r.usedHint).length;
+  const withErrors = completed.filter(r => r.hasErrors && !r.usedHint).length;
+  return { total: completed.length, withoutErrors: completed.length - withErrors - withHints, withErrors, withHints, target: shift.target, finished: completed.length === shift.target };
 }
 
 export function makePractice(shift, receiptId, now = Date.now()) {
@@ -141,6 +180,7 @@ export function makePractice(shift, receiptId, now = Date.now()) {
   receipt.completed = false;
   receipt.completedAt = null;
   receipt.hasErrors = false;
+  receipt.usedHint = false;
   return { id: `practice-${now}`, sourceShiftId: shift.id, sourceReceiptId: original.id, type: shift.type, target: 1, mode: original.mode, productLanguage: original.productLanguage || shift.productLanguage || 'ru', receiptLanguage: original.receiptLanguage || shift.receiptLanguage || 'ru', startedAt: now, completedAt: null, index: 0, completedCount: 0, draftAnswer: '', isPractice: true, receipts: [receipt] };
 }
 

@@ -46,7 +46,7 @@ test('all 47 catalog items have localized trade units in a full Mongolian receip
   const receipt = { receiptLanguage: 'mn', productLanguage: 'mn' };
   for (const product of data.products) {
     const unit = receiptUnit({ ...product, productId: product.id }, receipt);
-    const expected = product.id === 'banana' ? 'багц' : product.id === 'potato' ? 'кг' : 'ш';
+    const expected = product.id === 'banana' ? 'багц' : ['apple','pear','orange','carrot','potato','cucumber','tomato','onion'].includes(product.id) ? 'кг' : 'ш';
     assert.equal(unit, expected, product.id);
     assert.equal(receiptUnit({ ...product, productId: product.id }, { receiptLanguage: 'ru' }), product.id === 'banana' ? 'связ.' : product.unit);
   }

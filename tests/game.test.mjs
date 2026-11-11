@@ -154,11 +154,11 @@ test('several errors and one successful retry count as one completed receipt wit
   assert.equal(receipt.attempts.length, 4);
   assert.equal(receipt.hasErrors, true);
   assert.equal(shift.completedCount, 1);
-  assert.deepEqual(summarizeShift(shift), { total: 1, withoutErrors: 0, withErrors: 1, target: 10, finished: false });
+  assert.deepEqual(summarizeShift(shift), { total: 1, withoutErrors: 0, withErrors: 1, withHints: 0, target: 10, finished: false });
   assert.equal(advanceShift(shift), true);
   assert.equal(shift.index, 1);
   assert.equal(submitAnswer(shift, currentReceipt(shift).canonical, START + 3).status, 'paid');
-  assert.deepEqual(summarizeShift(shift), { total: 2, withoutErrors: 1, withErrors: 1, target: 10, finished: false });
+  assert.deepEqual(summarizeShift(shift), { total: 2, withoutErrors: 1, withErrors: 1, withHints: 0, target: 10, finished: false });
 });
 
 test('correct double submit is idempotent and final payment ends the shift exactly once', () => {
@@ -177,7 +177,7 @@ test('correct double submit is idempotent and final payment ends the shift exact
   }
   assert.equal(shift.index, 9);
   assert.equal(shift.completedAt, START + 10);
-  assert.deepEqual(summarizeShift(shift), { total: 10, withoutErrors: 10, withErrors: 0, target: 10, finished: true });
+  assert.deepEqual(summarizeShift(shift), { total: 10, withoutErrors: 10, withErrors: 0, withHints: 0, target: 10, finished: true });
   assert.equal(advanceShift(shift), 'finished');
   assert.equal(submitAnswer(shift, 'ошибка').status, 'already-complete');
   assert.equal(shift.receipts.reduce((count, receipt) => count + receipt.attempts.length, 0), 10);
@@ -222,7 +222,7 @@ test('practice resets its own attempts and does not mutate source shift or store
   submitAnswer(practice, 'ошибка', START + 4);
   submitAnswer(practice, replay.canonical, START + 5);
   assert.equal(advanceShift(practice), 'finished');
-  assert.deepEqual(summarizeShift(practice), { total: 1, withoutErrors: 0, withErrors: 1, target: 1, finished: true });
+  assert.deepEqual(summarizeShift(practice), { total: 1, withoutErrors: 0, withErrors: 1, withHints: 0, target: 1, finished: true });
   assert.equal(JSON.stringify(history), historySnapshot);
   assert.throws(() => makePractice(original, 'missing-receipt'), /Чек не найден/u);
 });

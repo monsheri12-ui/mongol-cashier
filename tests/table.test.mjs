@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { checkoutSurface, layoutPurchases } from '../dist/table.js';
+import { checkoutSurface, layoutPurchases, isBaggedProduce } from '../dist/table.js';
 import { createShift } from '../dist/game.js';
 
 const data = JSON.parse(await readFile(new URL('../dist/data.json', import.meta.url), 'utf8'));
@@ -10,6 +10,8 @@ const EPSILON = 1e-7;
 const VIEWPORTS = [
   { name: 'phone', width: 390, height: 844 },
   { name: 'tablet', width: 855, height: 774 },
+  { name: 'small laptop', width: 1024, height: 600 },
+  { name: 'laptop', width: 1366, height: 650 },
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'large desktop', width: 1920, height: 1080 },
   { name: 'ultrawide', width: 2560, height: 1080 },
@@ -78,13 +80,14 @@ const EQUIPMENT = [
 
 function checkBasket(items, viewport, label) {
   const layout = placement(viewport);
-  const units = layoutPurchases(items, atlas, layout.width, layout.height);
+  const physicalItems = items.map(item=>({...item,unit:item.unit || data.products.find(product=>product.id===item.productId)?.unit}));
+  const units = layoutPurchases(physicalItems, atlas, layout.width, layout.height);
   const expected = new Map();
-  for (const item of items) expected.set(item.productId, (expected.get(item.productId) || 0) + item.quantity);
+  for (const item of physicalItems) expected.set(item.productId, isBaggedProduce(item) ? 1 : (expected.get(item.productId) || 0) + item.quantity);
   const actual = new Map();
   for (const unit of units) actual.set(unit.productId, (actual.get(unit.productId) || 0) + 1);
   assert.deepEqual(actual, expected, `${label}: physical count per SKU must equal receipt quantity`);
-  assert.equal(units.length, items.reduce((total, item) => total + item.quantity, 0), label);
+  assert.equal(units.length, [...expected.values()].reduce((total, count) => total + count, 0), label);
 
   const screenUnits = [];
   const footprints = [];
@@ -106,11 +109,13 @@ function checkBasket(items, viewport, label) {
     const bounds = metadata.bounds;
     // Verify the real alpha rectangle lands on the allotted unit rectangle,
     // while the full transparent sprite frame preserves its original aspect.
+    if (!unit.bagWeight) {
     close(unit.offsetX + bounds.x * unit.frameWidth, 0, `${name}: alpha left`);
     close(unit.offsetY + bounds.y * unit.frameHeight, 0, `${name}: alpha top`);
     close(bounds.width * unit.frameWidth, unit.width, `${name}: alpha width`);
     close(bounds.height * unit.frameHeight, unit.height, `${name}: alpha height`);
     close(unit.frameWidth / unit.frameHeight, (sheet.width / sheet.columns) / (sheet.height / sheet.rows), `${name}: undistorted artwork`);
+    }
 
     const screen = { left: layout.screen.left + unit.left, top: layout.screen.top + unit.top, width: unit.width, height: unit.height };
     contained(screen, { left: 0, top: 0, width: viewport.width, height: viewport.height }, `${name}: visible viewport containment`);
@@ -204,4 +209,30 @@ test('repeat-visit generated baskets also fit across viewports with the real pro
 
 test('empty baskets produce no physical units', () => {
   assert.deepEqual(layoutPurchases([], atlas, 500, 180), []);
+});
+
+test('mixed heights share a base and spread across the worktop', () => {
+  for (const viewport of VIEWPORTS) {
+    const items=[{productId:'water',quantity:1},{productId:'banana',quantity:1},{productId:'apple',quantity:1,unit:'шт.'}];
+    const units=checkBasket(items,viewport,`aligned bases/${viewport.name}`);
+    const baseline=units[0].top+units[0].height;
+    for (const unit of units) close(unit.top+unit.height,baseline,'all goods rest on the same row');
+    const left=Math.min(...units.map(unit=>unit.left));
+    const right=Math.max(...units.map(unit=>unit.left+unit.width));
+    assert.ok(right-left>placement(viewport).width*.7,'purchases use the available tabletop width');
+  }
+});
+
+test('weighed produce is one visible bag with exact total weight, while legacy pieces remain separate',()=>{
+  for (const id of ['apple','pear','orange','carrot','potato','cucumber','tomato','onion']) {
+    const units=layoutPurchases([{productId:id,unit:'кг',quantity:2},{productId:id,unit:'кг',quantity:.5}],atlas,450,220);
+    assert.equal(units.length,1,id);assert.equal(units[0].bagWeight,2.5,id);
+  }
+  const pieces=layoutPurchases([{productId:'apple',unit:'шт.',quantity:3}],atlas,450,220);
+  assert.equal(pieces.length,3);assert.ok(pieces.every(unit=>unit.bagWeight===0));
+});
+
+test('a large fifteen-package purchase keeps every package fully visible at all screen sizes',()=>{
+  const items=[['milk',3],['eggs',2],['water',2],['banana',2],['yogurt',2],['bread',2],['rice',2]].map(([productId,quantity])=>({productId,quantity}));
+  for(const viewport of VIEWPORTS) assert.equal(checkBasket(items,viewport,`large basket/${viewport.name}`).length,15);
 });

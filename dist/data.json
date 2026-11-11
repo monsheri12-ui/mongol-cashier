@@ -24,7 +24,7 @@
     {
       "id": "apple",
       "name_ru": "Яблоки",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 1800,
       "name_mn": "Алим"
     },
@@ -108,7 +108,7 @@
     {
       "id": "carrot",
       "name_ru": "Морковь",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 900,
       "name_mn": "Лууван"
     },
@@ -129,21 +129,21 @@
     {
       "id": "cucumber",
       "name_ru": "Огурцы",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 1600,
       "name_mn": "Өргөст хэмх"
     },
     {
       "id": "tomato",
       "name_ru": "Помидоры",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 2100,
       "name_mn": "Улаан лооль"
     },
     {
       "id": "onion",
       "name_ru": "Лук",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 900,
       "name_mn": "Сонгино"
     },
@@ -276,14 +276,14 @@
     {
       "id": "pear",
       "name_ru": "Груши",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 2600,
       "name_mn": "Лийр"
     },
     {
       "id": "orange",
       "name_ru": "Апельсины",
-      "unit": "шт.",
+      "unit": "кг",
       "price": 2300,
       "name_mn": "Жүрж"
     },

@@ -1,8 +1,9 @@
-import { SHIFTS, normalizeSettings, createShift, currentReceipt, submitAnswer, advanceShift, summarizeShift, makePractice, morningPhase, worldAt } from './game.js';
+import { SHIFTS, normalizeSettings, createShift, currentReceipt, submitAnswer, advanceShift, summarizeShift, makePractice, worldAt, clockAt, addPlayTime, refreshUpcomingReceipts, recordHint } from './game.js?v=1.2.0';
 import { checkAnswer } from './numbers.js';
-import { checkoutSurface, layoutPurchases } from './table.js';
+import { checkoutSurface, layoutPurchases } from './table.js?v=1.2.0';
 import { receiptCopy, receiptUnit, receiptName } from './receipt.js';
 import { collectGameAssets, preloadAssets, createIntroScreen } from './loading.js?v=1.1.1';
+import { ACHIEVEMENTS, createAchievementProfile, normalizeAchievementProfile, achievementProgress, unlockAchievements, trackReceipt, trackFinishedGame, trackPlayTime } from './achievements.js?v=1.2.0';
 
 const app = document.querySelector('#app');
 const world = document.querySelector('#world');
@@ -27,6 +28,7 @@ const paths = {
   leaf: 'M20 4C10 2 3 7 5 14c2 7 13 5 15-10ZM4 21 17 8',
   bag: 'M5 7h14l1 14H4L5 7ZM9 8V6a3 3 0 0 1 6 0v2',
   help: 'M9.1 8a3 3 0 1 1 5.8 1c-.9 1.4-2.9 1.3-2.9 3M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0',
+  award: 'M8 3h8v5a4 4 0 0 1-8 0V3ZM8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 12v6M8 21h8M9 18h6v3',
 };
 const icon = (name, className = '') => `<svg class="icon ${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name] || paths.receipt}"/></svg>`;
 let data, buyers, productAtlas, worldArt;
@@ -39,22 +41,103 @@ let selectedReceiptId = null;
 let practice = null;
 let transitionTimer = null;
 let audio = null;
+let clockTarget = null;
+let lastClockTick = performance.now();
 let storageAvailable = true;
 
 function loadState() {
   try {
     const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    return { settings: normalizeSettings(value.settings), active: validShift(value.active) ? value.active : null, history: Array.isArray(value.history) ? value.history.filter(validShift).slice(0, 40) : [], visits: value.visits && typeof value.visits === 'object' ? value.visits : {} };
+    return { achievements: value.achievements, settings: normalizeSettings(value.settings), active: validShift(value.active) ? value.active : null, history: Array.isArray(value.history) ? value.history.filter(validShift).slice(0, 40) : [], visits: value.visits && typeof value.visits === 'object' ? value.visits : {} };
   } catch { return { settings: normalizeSettings(), active: null, history: [], visits: {} }; }
 }
 function validShift(shift) {
   return !!shift && !!SHIFTS[shift.type] && Number.isInteger(shift.target) && shift.target >= 1 && shift.target <= 40 && Array.isArray(shift.receipts) && shift.receipts.length === shift.target && Number.isInteger(shift.index) && shift.index >= 0 && shift.index < shift.receipts.length && shift.receipts.every(r => Array.isArray(r.items) && Array.isArray(r.attempts) && Number.isInteger(r.total) && r.total > 0 && r.total <= 999999);
 }
 const state = loadState();
+initializeAchievements();
 function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { storageAvailable = false; } }
+
+function initializeAchievements() {
+  const profile = normalizeAchievementProfile(state.achievements);
+  if (profile) { state.achievements = profile; return; }
+  state.achievements = createAchievementProfile();
+  const shifts = [...state.history].reverse();
+  if (state.active) shifts.push(state.active);
+  const seen = new Set();
+  for (const shift of shifts) {
+    if (seen.has(shift.id)) continue;
+    seen.add(shift.id);
+    for (const receipt of shift.receipts) trackReceipt(state.achievements, shift, receipt);
+    trackFinishedGame(state.achievements, shift);
+    trackPlayTime(state.achievements, shift.playedMs || 0, shift.type);
+    let type = shift.type;
+    for (let index = 0; index < Math.min(3, clockAt(shift).period); index += 1) {
+      type = SHIFTS[type].next; trackPlayTime(state.achievements, 0, type);
+    }
+  }
+  unlockAchievements(state.achievements);
+  save();
+}
+
+let achievementToastTimer;
+function checkAchievements() {
+  const unlocked = unlockAchievements(state.achievements);
+  if (!unlocked.length) return false;
+  document.querySelector('.achievement-toast')?.remove();
+  clearTimeout(achievementToastTimer);
+  const toast = document.createElement('aside');
+  toast.className = 'achievement-toast'; toast.setAttribute('role', 'status');
+  toast.innerHTML = `${icon('award')}<div><small>${unlocked.length === 1 ? 'Новое достижение' : `Новых достижений: ${unlocked.length}`}</small><strong>${escape(unlocked.slice(0,2).map(award => award.title).join(' · '))}${unlocked.length > 2 ? ` · ещё ${unlocked.length - 2}` : ''}</strong></div>`;
+  document.body.appendChild(toast);
+  achievementToastTimer = setTimeout(() => toast.remove(), 5000);
+  return true;
+}
+
+function clockLabel(shift) {
+  const clock = clockAt(shift);
+  const seconds = Math.ceil(clock.remainingMs / 1000);
+  return `${SHIFTS[SHIFTS[clock.type].next].short} через ${String(Math.floor(seconds / 60)).padStart(2,'0')}:${String(seconds % 60).padStart(2,'0')}`;
+}
+
+function syncPlayClock() {
+  const now = performance.now();
+  let changed = false;
+  if (clockTarget && clockTarget === state.active && !clockTarget.completedAt) {
+    const before = clockTarget.playedMs || 0;
+    const previousPeriod = clockAt(clockTarget).period;
+    addPlayTime(clockTarget, now - lastClockTick);
+    const clock = clockAt(clockTarget);
+    trackPlayTime(state.achievements, clockTarget.playedMs - before, clock.type);
+    changed = refreshUpcomingReceipts(clockTarget, data, state.visits);
+    if (clock.period !== previousPeriod) announce(`${SHIFTS[clock.type].label}. Текущий чек остаётся у тебя.`);
+    if (checkAchievements()) changed = true;
+    if (Math.floor(before / 5000) !== Math.floor(clockTarget.playedMs / 5000)) changed = true;
+  }
+  lastClockTick = now;
+  clockTarget = view === 'play' && !practice && !document.hidden && state.active && !state.active.completedAt ? state.active : null;
+  if (view === 'play' && !practice && state.active) {
+    const clock = clockAt(state.active);
+    const light = worldAt(clock.type, clock.progress);
+    for (const image of world.querySelectorAll('.world-background,.world-ambient')) {
+      const next = image.classList.contains('world-background-next') || image.classList.contains('world-ambient-next');
+      const path = worldPath(next ? light.to : light.from);
+      if (image.getAttribute('src') !== path) image.setAttribute('src', path);
+      if (next) image.style.opacity = String(light.blend * (image.classList.contains('world-ambient') ? .75 : 1));
+    }
+    const badge = document.querySelector('.shift-badge');
+    if (badge && badge.dataset.period !== String(clock.period)) {
+      badge.innerHTML = icon(SHIFTS[clock.type].icon) + SHIFTS[clock.type].label;
+      badge.dataset.period = String(clock.period);
+    }
+    const label = document.querySelector('.clock-label');
+    if (label) label.textContent = clockLabel(state.active);
+  }
+  if (changed) save();
+}
 function announce(text) { announcer.textContent = ''; requestAnimationFrame(() => { announcer.textContent = text; }); }
 function clearTransition() { clearTimeout(transitionTimer); transitionTimer = null; }
-function show(name) { clearTransition(); view = name; feedback = ''; feedbackKind = ''; revealed = false; try { sessionStorage.setItem('cashier-last-view', name); } catch {} render(); }
+function show(name) { syncPlayClock(); clearTransition(); view = name; feedback = ''; feedbackKind = ''; revealed = false; try { sessionStorage.setItem('cashier-last-view', name); } catch {} render(); app.scrollTop = 0; syncPlayClock(); }
 function dateLabel(timestamp) { return new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Moscow' }).format(timestamp); }
 function findShift(id = selectedShiftId) { return state.history.find(shift => shift.id === id); }
 function playedShift() { return practice || state.active; }
@@ -71,13 +154,24 @@ function customerArt(id, className = '') {
   return `<div class="customer-art ${className}" style="${spriteStyle(buyers?.customers, buyers?.sheets, id)}" aria-hidden="true"></div>`;
 }
 function productArt(id) { return `<div class="product-art" style="${spriteStyle(productAtlas?.products, productAtlas?.sheets, id)}" aria-hidden="true"></div>`; }
+
+function produceBagMarkup(unit) {
+  const metadata = productAtlas.products[unit.productId];
+  const sheet = productAtlas.sheets.find(sheet => sheet.id === metadata.sheet);
+  const bounds = metadata.bounds;
+  const aspect = (sheet.width / sheet.columns) / (sheet.height / sheet.rows) * bounds.width / bounds.height;
+  const width = Math.min(unit.width * .4, unit.height * .27 * aspect), height = width / aspect;
+  const fruit = [[.16,.35],[.45,.39],[.05,.54],[.52,.57],[.29,.65]].map(([x,y]) => `<span class="bag-fruit" style="left:${x*100}%;top:${y*100}%;width:${width}px;height:${height}px"><span class="product-art" style="${spriteStyle(productAtlas.products,productAtlas.sheets,unit.productId)};width:${width/bounds.width}px;height:${height/bounds.height}px;left:${-bounds.x*width/bounds.width}px;top:${-bounds.y*height/bounds.height}px"></span></span>`).join('');
+  const outline = 'M35 12Q50 4 65 12L67 31C84 45 96 74 91 112Q50 127 9 112C4 75 16 45 33 31Z';
+  return `<div class="produce-bag" aria-hidden="true"><svg class="bag-back" viewBox="0 0 100 130" preserveAspectRatio="none"><path d="${outline}" fill="#d9e9df" fill-opacity=".22" stroke="#ebf4e8" stroke-opacity=".75" stroke-width="1.4"/></svg>${fruit}<svg class="bag-front" viewBox="0 0 100 130" preserveAspectRatio="none"><path d="${outline}" fill="#e9f4e6" fill-opacity=".13" stroke="#f4ffef" stroke-opacity=".85" stroke-width="1.5"/><path d="M35 12L40 28L33 36M65 12L59 28L67 36M16 65L23 108L38 117M83 62L77 108L62 118M33 32L45 43M66 32L57 44M24 111Q50 119 77 110" fill="none" stroke="#f3fae9" stroke-opacity=".65" stroke-width="1.5"/><path d="M35 12Q23 4 34 3L50 16Q66 0 69 7L65 15" fill="none" stroke="#eff7df" stroke-opacity=".9" stroke-width="3"/></svg><span class="bag-weight">${money(unit.bagWeight)} кг</span></div>`;
+}
 function worldPath(phase) { return worldArt?.variants?.find(item => item.id === phase)?.src || `assets/world/table-v2/${phase}.webp`; }
 
 function purchasesMarkup(receipt) {
-  const surface = checkoutSurface(innerWidth, innerHeight, worldArt?.layers?.groceryStage);
+  const surface = checkoutSurface(innerWidth, innerHeight, worldArt?.layers?.groceryStage, innerWidth - app.clientWidth);
   const width = surface.width * surface.stageWidth, height = surface.height * surface.stageHeight;
   const units = layoutPurchases(receipt.items, productAtlas, width, height);
-  return `<div class="counter-purchases" data-testid="counter-purchases" data-unit-count="${units.length}" style="left:${surface.left * 100}%;top:${surface.top * 100}%;width:${surface.width * 100}%;height:${surface.height * 100}%">${units.map(unit => `<div class="table-unit" data-product-id="${unit.productId}" data-unit-index="${unit.unitIndex}" style="left:${unit.left}px;top:${unit.top}px;width:${unit.width}px;height:${unit.height}px;z-index:${unit.zIndex}"><span class="item-contact-shadow"></span><div class="product-art" style="${spriteStyle(productAtlas.products, productAtlas.sheets, unit.productId)};width:${unit.frameWidth}px;height:${unit.frameHeight}px;left:${unit.offsetX}px;top:${unit.offsetY}px"></div></div>`).join('')}</div>`;
+  return `<div class="counter-purchases" data-testid="counter-purchases" data-unit-count="${units.length}" style="left:${surface.left * 100}%;top:${surface.top * 100}%;width:${surface.width * 100}%;height:${surface.height * 100}%">${units.map(unit => `<div class="table-unit" data-product-id="${unit.productId}" data-unit-index="${unit.unitIndex}" ${unit.bagWeight ? `data-bag-weight="${unit.bagWeight}"` : ''} style="left:${unit.left}px;top:${unit.top}px;width:${unit.width}px;height:${unit.height}px;z-index:${unit.zIndex}"><span class="item-contact-shadow"></span>${unit.bagWeight ? produceBagMarkup(unit) : `<div class="product-art" style="${spriteStyle(productAtlas.products, productAtlas.sheets, unit.productId)};width:${unit.frameWidth}px;height:${unit.frameHeight}px;left:${unit.offsetX}px;top:${unit.offsetY}px"></div>`}</div>`).join('')}</div>`;
 }
 
 function paintWorld(type = 'evening', progress = 0, receipt = null) {
@@ -113,12 +207,12 @@ function sound(kind) {
 function controlsMarkup() {
   const length = state.settings.length;
   const language = state.settings.receiptLanguage === 'mn' ? 'mn' : state.settings.productLanguage === 'mn' ? 'names_mn' : 'ru';
-  return `<section class="settings-panel" aria-label="Настройки смены"><div class="difficulty-heading">${icon('leaf')}<span>Уровень<br>сложности</span></div><div class="length-control"><label for="shift-length">Чеков за смену</label><div class="range-box"><input id="shift-length" type="range" min="10" max="40" step="1" value="${length}" style="--range-fill:${(length - 10) / 30 * 100}%" aria-valuetext="${length} ${plural(length)}"><div class="range-ticks" aria-hidden="true"><span>10</span><span>20</span><span>30</span><span>40</span></div></div><output for="shift-length" id="length-value" class="length-value">${length} ${plural(length)}</output></div><fieldset class="mode-control"><legend>Формат ответа</legend>${['number_only', 'number_and_currency'].map(mode => `<label class="radio-choice"><input type="radio" name="answer-mode" value="${mode}" ${state.settings.mode === mode ? 'checked' : ''}><span class="radio-dot"></span><span>${modeLabel(mode)}</span></label>`).join('')}</fieldset>${data.products.every(p => p.name_mn) ? `<fieldset class="receipt-language-control"><legend>Язык чека</legend>${[['ru','Русский','Обычный чек'],['names_mn','Товары по-монгольски','Только названия покупок'],['mn','Весь чек на монгольском','Заголовки, товары, единицы и итог']].map(([value,title,note]) => `<label class="receipt-language-choice"><input type="radio" name="receipt-language" value="${value}" ${language === value ? 'checked' : ''}><span class="radio-dot"></span><span><strong>${title}</strong><small>${note}</small></span></label>`).join('')}</fieldset>` : ''}</section>`;
+  return `<section class="settings-panel" aria-label="Настройки игры"><div class="length-control"><label for="shift-length">Чеков за игру</label><div class="range-box"><input id="shift-length" type="range" min="10" max="40" step="1" value="${length}" style="--range-fill:${(length - 10) / 30 * 100}%" aria-valuetext="${length} ${plural(length)}"><div class="range-ticks" aria-hidden="true"><span>10</span><span>20</span><span>30</span><span>40</span></div></div><output for="shift-length" id="length-value" class="length-value">${length} ${plural(length)}</output></div><fieldset class="mode-control"><legend>Формат ответа</legend>${['number_only', 'number_and_currency'].map(mode => `<label class="radio-choice"><input type="radio" name="answer-mode" value="${mode}" ${state.settings.mode === mode ? 'checked' : ''}><span class="radio-dot"></span><span>${modeLabel(mode)}</span></label>`).join('')}</fieldset>${data.products.every(p => p.name_mn) ? `<fieldset class="receipt-language-control"><legend>Язык чека</legend>${[['ru','Русский','Обычный чек'],['names_mn','Товары по-монгольски','Только названия покупок'],['mn','Весь чек на монгольском','Заголовки, товары, единицы и итог']].map(([value,title,note]) => `<label class="receipt-language-choice"><input type="radio" name="receipt-language" value="${value}" ${language === value ? 'checked' : ''}><span class="radio-dot"></span><span><strong>${title}</strong><small>${note}</small></span></label>`).join('')}</fieldset>` : ''}<label class="hints-control"><input id="hints-enabled" name="hints-enabled" type="checkbox" ${state.settings.hints ? 'checked' : ''} aria-describedby="hints-note"><span><strong>Подсказки</strong><small id="hints-note">После ошибки — подсказка, после двух — показ ответа.</small></span></label></section>`;
 }
 
 function renderHome() {
   paintWorld('evening', .2);
-  app.innerHTML = `<main class="menu-view"><div class="menu-toolbar"><span class="brand-small">${icon('bag')} <span lang="mn">Монгол дэлгүүр</span></span><div class="toolbar-actions"><button class="small-button" data-action="history">${icon('history')}<span>История смен${state.history.length ? ` · ${state.history.length}` : ''}</span></button>${soundButton()}</div></div><section class="menu-paper paper"><header class="menu-title"><span class="title-leaf">❧</span><div><h1>Выбери смену</h1></div><span class="title-leaf title-leaf-right">❧</span></header>${state.active ? `<div class="resume-banner"><div>${icon('receipt')}<span><strong>Смена ждёт тебя</strong><small>${SHIFTS[state.active.type].label} · ${state.active.completedCount} из ${state.active.target} чеков</small></span></div><button class="button button-small" data-action="resume">Продолжить</button></div>` : ''}<div class="shift-grid">${Object.entries(SHIFTS).map(([type, shift]) => `<button class="shift-card ${type === 'morning' ? 'shift-card-first' : ''}" data-action="start" data-shift="${type}"><img class="shift-card-background" src="${worldPath(shift.world)}" alt="">${customerArt(shift.customer, 'card-customer')}<span class="shift-card-scrim"></span><span class="shift-card-copy"><span class="shift-card-title">${icon(shift.icon)}${shift.short}</span><span class="shift-card-action">${shift.action}${icon('next')}</span></span></button>`).join('')}</div>${controlsMarkup()}<footer class="menu-footnote"><span>${icon('receipt')} Назови сумму словами — покупатель оплатит чек</span><button class="text-button" data-action="help">Как играть</button></footer></section><p class="save-note">${storageAvailable ? 'Прогресс сохраняется в этом браузере' : 'Хранилище браузера недоступно; оставь вкладку открытой, чтобы сохранить текущую смену'}</p></main>`;
+  app.innerHTML = `<main class="menu-view"><div class="menu-toolbar"><span class="brand-small">${icon('bag')} <span lang="mn">Монгол дэлгүүр</span></span><div class="toolbar-actions"><button class="small-button" data-action="achievements">${icon('award')}<span>Достижения · ${Object.keys(state.achievements.unlocked).length}/50</span></button><button class="small-button" data-action="history">${icon('history')}<span>История игр</span></button>${soundButton()}</div></div><section class="menu-paper paper"><header class="menu-title"><div><h1>Настройки игры</h1><p class="menu-description">Утро → день → вечер → ночь. Время суток меняется автоматически.</p></div></header>${state.active ? `<div class="resume-banner"><div>${icon('receipt')}<span><strong>Игра ждёт тебя</strong><small>${state.active.completedCount} из ${state.active.target} чеков · ${SHIFTS[clockAt(state.active).type].short}</small></span></div><button class="button button-small" data-action="resume">Продолжить</button></div>` : ''}${controlsMarkup()}<div class="menu-start"><button class="button" data-action="start" data-shift="morning">${state.active ? 'Начать новую игру' : 'Начать игру'}${icon('next')}</button></div><footer class="menu-footnote"><span>${icon('receipt')} Назови сумму словами — покупатель оплатит чек</span><button class="text-button" data-action="help">Как играть</button></footer></section><p class="save-note">${storageAvailable ? 'Прогресс сохраняется в этом браузере' : 'Хранилище браузера недоступно; оставь вкладку открытой, чтобы сохранить игру'}</p></main>`;
 }
 function soundButton() { return `<button class="icon-button sound-toggle" data-action="sound" aria-label="${state.settings.sound ? 'Выключить звуки кассы' : 'Включить звуки кассы'}" aria-pressed="${state.settings.sound}" title="${state.settings.sound ? 'Выключить звуки кассы' : 'Включить звуки кассы'}">${icon(state.settings.sound ? 'sound' : 'mute')}<span class="sound-label">Звуки кассы</span></button>`; }
 
@@ -130,8 +224,9 @@ function renderPlay() {
   const paid = receipt.completed;
   const wrongAttempts = receipt.attempts.filter(a => !a.correct);
   const copy = receiptCopy(receipt);
-  paintWorld(shift.type, summary.total / shift.target, receipt);
-  app.innerHTML = `<main class="play-view ${paid ? 'is-paid' : ''}"><header class="play-topbar"><button class="small-button back-button" data-action="${practice ? 'back-review' : 'home'}">${icon('back')}<span>${practice ? 'К разбору' : 'На главную'}</span></button><div class="shift-status"><span class="shift-badge">${icon(SHIFTS[shift.type].icon)}${practice ? `Повторение чека №${receipt.number}` : SHIFTS[shift.type].label}</span>${practice || morningPhase(shift) ? `<span class="phase-label">${practice ? 'Отдельная тренировка' : morningPhase(shift)}</span>` : ''}</div><div class="progress-summary"><span>${icon('receipt')}<strong>${practice ? '1 из 1' : `Чек ${Math.min(shift.index + 1, shift.target)} из ${shift.target}`}</strong></span><div class="progress-track" role="progressbar" aria-label="Завершено чеков" aria-valuemin="0" aria-valuemax="${shift.target}" aria-valuenow="${summary.total}"><span style="width:${summary.total / shift.target * 100}%"></span></div></div>${soundButton()}</header><section class="checkout-card paper" aria-label="Чек и запись суммы"><div class="printed-receipt" lang="${copy.lang}"><header class="receipt-heading"><span class="receipt-seal">${icon('receipt')}</span><div><p class="eyebrow">${copy.store}</p><h1>${copy.receipt} №${receipt.number}</h1></div><span class="receipt-status ${paid ? 'receipt-status-paid' : ''}">${paid ? copy.paid : copy.due}</span></header><div class="receipt-items"><div class="receipt-columns"><span>${copy.purchase}</span><span>${copy.amount}</span></div>${receipt.items.map(item => `<div class="receipt-item"><div><span>${escape(receiptName(item,receipt))}</span><small>${item.quantity} ${escape(receiptUnit(item,receipt))} × ${money(item.price)} ₮</small></div><strong>${money(item.lineTotal)} ₮</strong></div>`).join('')}</div><div class="receipt-total"><span>${copy.total}</span><strong data-testid="receipt-total" data-amount="${receipt.total}">${money(receipt.total)} <span>₮</span></strong></div></div><div class="mode-reminder">${icon('help')}<span>${shift.mode === 'number_only' ? 'Напиши только число словами' : 'Напиши число словами и валюту'}</span></div>${paid ? `<div class="paid-message" role="status">${icon('check')}<div><strong>Верно! Покупка оплачена</strong><span>${escape(receipt.canonical)}</span></div></div><button class="button next-customer" data-action="advance">${practice ? 'Вернуться к разбору' : shift.index === shift.target - 1 ? 'Итоги смены' : 'Следующий покупатель'}${icon('next')}</button>` : `<form id="answer-form" novalidate><label class="answer-label" for="amount-answer">Сумма по-монгольски</label><textarea id="amount-answer" name="amount-answer" rows="2" maxlength="500" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="answer-feedback" ${feedbackKind === 'error' ? 'aria-invalid="true"' : ''} placeholder="Напиши сумму словами…">${escape(shift.draftAnswer || '')}</textarea><div class="input-tools"><span>Монгольские буквы</span><div><button type="button" class="letter-key" data-action="letter" data-letter="ө" aria-label="Вставить букву ө">ө</button><button type="button" class="letter-key" data-action="letter" data-letter="ү" aria-label="Вставить букву ү">ү</button></div></div><div id="answer-feedback" class="answer-feedback ${feedbackKind}" role="status">${feedback ? escape(feedback) : '&nbsp;'}</div><button class="button submit-answer" type="submit">Назвать сумму${icon('next')}</button><div class="answer-secondary"><span>${wrongAttempts.length ? `Попытка ${wrongAttempts.length + 1}` : 'Enter — назвать сумму'}</span>${wrongAttempts.length ? '<button class="text-button" type="button" data-action="hint">Подсказка</button>' : ''}${wrongAttempts.length >= 2 ? '<button class="text-button" type="button" data-action="reveal">Показать ответ</button>' : ''}</div>${revealed ? `<div class="revealed-answer"><small>Попробуй записать самостоятельно</small><strong>${escape(receipt.canonical)}</strong></div>` : ''}</form>`}${practice ? '<footer class="checkout-foot">Тренировка · исходный результат сохранён</footer>' : ''}</section></main>`;
+  const clock = clockAt(shift);
+  paintWorld(clock.type, clock.progress, receipt);
+  app.innerHTML = `<main class="play-view ${paid ? 'is-paid' : ''}"><header class="play-topbar"><button class="small-button back-button" data-action="${practice ? 'back-review' : 'home'}">${icon('back')}<span>${practice ? 'К разбору' : 'На главную'}</span></button><div class="shift-status"><span class="shift-badge">${icon(SHIFTS[clock.type].icon)}${practice ? `Повторение чека №${receipt.number}` : SHIFTS[clock.type].label}</span><span class="phase-label clock-label">${practice ? 'Отдельная тренировка' : clockLabel(shift)}</span></div><div class="progress-summary"><span>${icon('receipt')}<strong>${practice ? '1 из 1' : `Чек ${Math.min(shift.index + 1, shift.target)} из ${shift.target}`}</strong></span><div class="progress-track" role="progressbar" aria-label="Завершено чеков" aria-valuemin="0" aria-valuemax="${shift.target}" aria-valuenow="${summary.total}"><span style="width:${summary.total / shift.target * 100}%"></span></div></div><div class="play-controls">${hintsButton()}${soundButton()}</div></header><section class="checkout-card paper" aria-label="Чек и запись суммы"><div class="printed-receipt" lang="${copy.lang}"><header class="receipt-heading"><span class="receipt-seal">${icon('receipt')}</span><div><p class="eyebrow">${copy.store}</p><h1>${copy.receipt} №${receipt.number}</h1></div><span class="receipt-status ${paid ? 'receipt-status-paid' : ''}">${paid ? copy.paid : copy.due}</span></header><div class="receipt-items"><div class="receipt-columns"><span>${copy.purchase}</span><span>${copy.amount}</span></div>${receipt.items.map(item => `<div class="receipt-item"><div><span>${escape(receiptName(item,receipt))}</span><small>${item.quantity} ${escape(receiptUnit(item,receipt))} × ${money(item.price)} ₮</small></div><strong>${money(item.lineTotal)} ₮</strong></div>`).join('')}</div><div class="receipt-total"><span>${copy.total}</span><strong data-testid="receipt-total" data-amount="${receipt.total}">${money(receipt.total)} <span>₮</span></strong></div></div><div class="mode-reminder">${icon('help')}<span>${shift.mode === 'number_only' ? 'Напиши только число словами' : 'Напиши число словами и валюту'}</span></div>${paid ? `<div class="paid-message" role="status">${icon('check')}<div><strong>Верно! Покупка оплачена</strong><span>${escape(receipt.canonical)}</span></div></div><button class="button next-customer" data-action="advance">${practice ? 'Вернуться к разбору' : shift.index === shift.target - 1 ? 'Итоги смены' : 'Следующий покупатель'}${icon('next')}</button>` : `<form id="answer-form" novalidate><label class="answer-label" for="amount-answer">Сумма по-монгольски</label><textarea id="amount-answer" name="amount-answer" rows="2" maxlength="500" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="answer-feedback" ${feedbackKind === 'error' ? 'aria-invalid="true"' : ''} placeholder="Напиши сумму словами…">${escape(shift.draftAnswer || '')}</textarea><div class="input-tools"><span>Монгольские буквы</span><div><button type="button" class="letter-key" data-action="letter" data-letter="ө" aria-label="Вставить букву ө">ө</button><button type="button" class="letter-key" data-action="letter" data-letter="ү" aria-label="Вставить букву ү">ү</button></div></div><div id="answer-feedback" class="answer-feedback ${feedbackKind}" role="status">${feedback ? escape(feedback) : '&nbsp;'}</div><button class="button submit-answer" type="submit">Назвать сумму${icon('next')}</button><div class="answer-secondary"><span>${wrongAttempts.length ? `Попытка ${wrongAttempts.length + 1}` : 'Enter — назвать сумму'}</span><span class="hint-actions" data-hint-actions ${state.settings.hints ? '' : 'hidden'}>${wrongAttempts.length ? '<button class="text-button" type="button" data-action="hint">Подсказка</button>' : ''}${wrongAttempts.length >= 2 ? '<button class="text-button" type="button" data-action="reveal">Показать ответ</button>' : ''}</span></div>${revealed && state.settings.hints ? `<div class="revealed-answer"><small>Попробуй записать самостоятельно</small><strong>${escape(receipt.canonical)}</strong></div>` : ''}</form>`}${practice ? '<footer class="checkout-foot">Тренировка · исходный результат сохранён</footer>' : ''}</section></main>`;
   if (!paid) requestAnimationFrame(() => {
     const field = document.querySelector('#amount-answer');
     if (field && matchMedia('(min-width: 981px)').matches) { field.focus({ preventScroll: true }); field.setSelectionRange(field.value.length, field.value.length); }
@@ -144,8 +239,8 @@ function renderResults() {
   if (!shift) return show('home');
   const score = summarizeShift(shift);
   paintWorld(shift.type, 1);
-  const next = SHIFTS[SHIFTS[shift.type].next];
-  app.innerHTML = `<main class="center-view"><div class="screen-toolbar"><button class="small-button" data-action="home">${icon('back')}На главную</button>${soundButton()}</div><section class="results-paper paper"><p class="eyebrow">${dateLabel(shift.completedAt)}</p><h1>Смена окончена</h1><p class="results-subtitle">${SHIFTS[shift.type].label}</p><div class="score-grid"><div class="score-card">${icon('receipt')}<span>Всего чеков</span><strong data-testid="score-total">${score.total}</strong></div><div class="score-card score-good">${icon('check')}<span>Чеков без ошибок</span><strong data-testid="score-correct">${score.withoutErrors}</strong></div><div class="score-card score-errors">${icon('error')}<span>Чеков с ошибками</span><strong data-testid="score-errors">${score.withErrors}</strong></div></div>${!score.withErrors ? '<p class="perfect-result">Все чеки без ошибок. Отличная смена!</p>' : ''}<div class="result-actions">${score.withErrors ? `<button class="button" data-action="review" data-id="${shift.id}">Посмотреть ошибки${icon('next')}</button>` : ''}<button class="button ${score.withErrors ? 'button-outline' : ''}" data-action="next-shift" data-shift="${SHIFTS[shift.type].next}">${next.action}${icon(next.icon)}</button></div><button class="text-button choose-another" data-action="home">Выбрать другую смену</button></section></main>`;
+  const hasMistakes = shift.receipts.some(receipt => receipt.hasErrors);
+  app.innerHTML = `<main class="center-view"><div class="screen-toolbar"><button class="small-button" data-action="home">${icon('back')}На главную</button>${soundButton()}</div><section class="results-paper paper"><p class="eyebrow">${dateLabel(shift.completedAt)}</p><h1>Игра завершена</h1><p class="results-subtitle">${shift.target} ${plural(shift.target)}</p><div class="score-grid"><div class="score-card">${icon('receipt')}<span>Всего чеков</span><strong data-testid="score-total">${score.total}</strong></div><div class="score-card score-good">${icon('check')}<span>Чеков без ошибок</span><strong data-testid="score-correct">${score.withoutErrors}</strong></div><div class="score-card score-errors">${icon('error')}<span>Чеков с ошибками</span><strong data-testid="score-errors">${score.withErrors}</strong></div><div class="score-card score-hints">${icon('help')}<span>Чеков с подсказкой</span><strong data-testid="score-hints">${score.withHints}</strong></div></div><p class="score-note">Каждый чек входит в одну категорию. Использована подсказка или показ ответа — чек учитывается в «С подсказкой».</p>${!score.withErrors && !score.withHints ? '<p class="perfect-result">Все чеки без ошибок. Отличная смена!</p>' : ''}<div class="result-actions">${hasMistakes ? `<button class="button" data-action="review" data-id="${shift.id}">Посмотреть ошибки${icon('next')}</button>` : ''}<button class="button ${hasMistakes ? 'button-outline' : ''}" data-action="start" data-shift="morning">Играть ещё${icon('next')}</button></div><button class="text-button choose-another" data-action="home">Настройки игры</button></section></main>`;
 }
 
 function attemptMarkup(attempt) {
@@ -168,10 +263,21 @@ function renderReview() {
 
 function renderHistory() {
   paintWorld('evening', .25);
-  app.innerHTML = `<main class="history-view"><div class="screen-toolbar"><button class="small-button" data-action="home">${icon('back')}На главную</button>${soundButton()}</div><section class="history-paper paper"><p class="eyebrow">Твои результаты</p><h1>История смен</h1>${state.history.length ? `<div class="history-list">${state.history.map(shift => {
+  app.innerHTML = `<main class="history-view"><div class="screen-toolbar"><button class="small-button" data-action="home">${icon('back')}На главную</button>${soundButton()}</div><section class="history-paper paper"><p class="eyebrow">Твои результаты</p><h1>История игр</h1>${state.history.length ? `<div class="history-list">${state.history.map(shift => {
     const score = summarizeShift(shift);
-    return `<button class="history-row" data-action="open-result" data-id="${shift.id}"><span class="history-icon">${icon(SHIFTS[shift.type].icon)}</span><span class="history-name"><strong>${SHIFTS[shift.type].label}</strong><small>${dateLabel(shift.completedAt)} · ${modeLabel(shift.mode)}</small></span><span class="history-score"><strong>${score.withoutErrors}<small> без ошибок</small></strong><span>${score.withErrors} с ошибками · ${score.total} всего</span></span>${icon('next')}</button>`;
-  }).join('')}</div>` : `<div class="empty-history">${icon('receipt')}<h2>Первая смена впереди</h2><p>Обслужи покупателей — здесь появятся результаты и разбор ошибок.</p><button class="button" data-action="home">Выбрать смену${icon('next')}</button></div>`}<p class="history-note">Последние 40 смен сохраняются в этом браузере.</p></section></main>`;
+    return `<button class="history-row" data-action="open-result" data-id="${shift.id}"><span class="history-icon">${icon(SHIFTS[shift.type].icon)}</span><span class="history-name"><strong>${SHIFTS[shift.type].label}</strong><small>${dateLabel(shift.completedAt)} · ${modeLabel(shift.mode)}</small></span><span class="history-score"><strong>${score.withoutErrors}<small> без ошибок</small></strong><span>${score.withErrors} с ошибками · ${score.withHints} с подсказкой · ${score.total} всего</span></span>${icon('next')}</button>`;
+  }).join('')}</div>` : `<div class="empty-history">${icon('receipt')}<h2>Первая смена впереди</h2><p>Обслужи покупателей — здесь появятся результаты и разбор ошибок.</p><button class="button" data-action="home">Настройки игры${icon('next')}</button></div>`}<p class="history-note">Последние 40 смен сохраняются в этом браузере.</p></section></main>`;
+}
+
+function renderAchievements() {
+  paintWorld('evening', .2);
+  const unlocked = Object.keys(state.achievements.unlocked).length;
+  app.innerHTML = `<main class="achievements-view"><div class="screen-toolbar"><button class="small-button" data-action="home">${icon('back')}На главную</button>${soundButton()}</div><section class="achievements-paper paper"><header class="achievements-heading"><div><p class="eyebrow">Твоя коллекция</p><h1>Достижения</h1><p>Получено ${unlocked} из ${ACHIEVEMENTS.length}. Прогресс сохраняется между играми.</p></div><span class="achievement-count">${icon('award')}<strong>${unlocked}<small> / 50</small></strong></span></header><p class="achievements-note">Повторение чеков из разбора не увеличивает счётчики. Чек без ошибок засчитывается, когда сумма названа с первой попытки и без подсказки.</p><div class="achievements-grid">${ACHIEVEMENTS.map(award => {
+    const achieved = Object.hasOwn(state.achievements.unlocked, award.id);
+    const progress = achievementProgress(state.achievements, award);
+    const label = award.metric === 'playedMs' ? `${Math.floor(progress / 60_000)} / 60 мин.` : `${progress} / ${award.target}`;
+    return `<article class="achievement-card ${achieved ? 'is-unlocked' : ''}" data-achievement="${award.id}"><span class="achievement-medal">${icon('award')}</span><div><h2>${escape(award.title)}</h2><p>${escape(award.description)}</p><progress value="${progress}" max="${award.target}" aria-label="${escape(award.title)}"></progress><span class="achievement-status">${achieved ? 'Получено' : label}</span></div></article>`;
+  }).join('')}</div></section></main>`;
 }
 
 function render() {
@@ -181,10 +287,12 @@ function render() {
   else if (view === 'results') renderResults();
   else if (view === 'review') renderReview();
   else if (view === 'history') renderHistory();
+  else if (view === 'achievements') renderAchievements();
   else renderHome();
 }
 
-function start(type, force = false) {
+function start(type = 'morning', force = false) {
+  syncPlayClock();
   if (!SHIFTS[type]) return;
   if (state.active && !force) {
     openDialog(`<h2>Смена ещё ждёт тебя</h2><p>${SHIFTS[state.active.type].label}: завершено ${state.active.completedCount} из ${state.active.target} чеков.</p><div class="dialog-actions"><button class="button" data-action="resume">Продолжить смену</button><button class="button button-outline" data-action="confirm-start" data-shift="${type}">Начать новую</button></div><button class="text-button" data-action="close-dialog">Вернуться</button>`);
@@ -193,19 +301,22 @@ function start(type, force = false) {
   closeDialog();
   state.active = createShift(data, state.settings, type, state.visits);
   practice = null;
+  trackPlayTime(state.achievements, 0, type);
   save(); show('play');
   announce(`${SHIFTS[type].label}. ${state.active.target} ${plural(state.active.target)}. ${modeLabel(state.active.mode)}.`);
 }
 
 function finish() {
   if (!state.active || !summarizeShift(state.active).finished) return;
+  trackFinishedGame(state.achievements, state.active);
+  checkAchievements();
   const shift = structuredClone(state.active);
   if (!state.history.some(h => h.id === shift.id)) state.history.unshift(shift);
   state.history = state.history.slice(0, 40);
   state.active = null;
   selectedShiftId = shift.id;
   save(); show('results');
-  announce(`Смена окончена. Без ошибок ${summarizeShift(shift).withoutErrors}, с ошибками ${summarizeShift(shift).withErrors}.`);
+  announce(`Игра завершена. Без ошибок ${summarizeShift(shift).withoutErrors}, с ошибками ${summarizeShift(shift).withErrors}, с подсказкой ${summarizeShift(shift).withHints}.`);
 }
 function advance() {
   clearTransition();
@@ -216,6 +327,7 @@ function advance() {
   else if (next) { feedback = ''; feedbackKind = ''; revealed = false; save(); render(); }
 }
 function answer(raw) {
+  syncPlayClock();
   const shift = playedShift();
   if (!shift) return;
   const result = submitAnswer(shift, raw);
@@ -223,7 +335,11 @@ function answer(raw) {
   if (result.status === 'already-complete') return;
   if (result.status === 'paid') {
     feedback = ''; feedbackKind = '';
-    if (!practice) state.visits[result.receipt.customerId] = (Number(state.visits[result.receipt.customerId]) || 0) + 1;
+    if (!practice) {
+      state.visits[result.receipt.customerId] = (Number(state.visits[result.receipt.customerId]) || 0) + 1;
+      trackReceipt(state.achievements, shift, result.receipt);
+      checkAchievements();
+    }
     sound('paid');
     announce('Верно. Покупка оплачена.');
   } else {
@@ -242,9 +358,12 @@ function insertLetter(letter) {
   field.focus({ preventScroll: true });
 }
 function showHint() {
+  if (!state.settings.hints) return;
   const receipt = currentReceipt(playedShift());
   const last = receipt.attempts.filter(a => !a.correct).at(-1);
   if (!last) return;
+  recordHint(playedShift());
+  if (!practice) save();
   const differences = last.differences || [];
   const form = differences.find(d => ['мянга', 'мянган', 'зуу', 'зуун'].includes(d.actual) && ['мянга', 'мянган', 'зуу', 'зуун'].includes(d.expected));
   if (form) feedback = receipt.mode === 'number_and_currency' ? 'Проверь форму числительного перед валютой и внутри составной суммы.' : 'Проверь форму последнего слова самостоятельного числа.';
@@ -255,6 +374,34 @@ function showHint() {
   feedbackKind = 'hint'; renderPlay();
 }
 
+function hintsButton() {
+  const enabled = state.settings.hints;
+  return `<button class="small-button hint-toggle" data-action="toggle-hints" aria-pressed="${enabled}" aria-label="${enabled ? 'Выключить подсказки' : 'Включить подсказки'}" title="${enabled ? 'Выключить подсказки' : 'Включить подсказки'}">${icon('help')}<span>Подсказки: ${enabled ? 'вкл.' : 'выкл.'}</span></button>`;
+}
+
+function setHintsEnabled(enabled) {
+  state.settings.hints = enabled;
+  save();
+  document.querySelectorAll('[name="hints-enabled"]').forEach(control => { control.checked = enabled; });
+  document.querySelectorAll('[data-action="toggle-hints"]').forEach(control => {
+    control.setAttribute('aria-pressed', String(enabled));
+    control.setAttribute('aria-label', enabled ? 'Выключить подсказки' : 'Включить подсказки');
+    control.title = control.getAttribute('aria-label');
+    control.querySelector('span').textContent = `Подсказки: ${enabled ? 'вкл.' : 'выкл.'}`;
+  });
+  document.querySelectorAll('[data-hint-actions]').forEach(control => { control.hidden = !enabled; });
+  if (!enabled) {
+    revealed = false;
+    document.querySelector('.revealed-answer')?.remove();
+    if (feedbackKind === 'hint') {
+      feedback = ''; feedbackKind = '';
+      const message = document.querySelector('#answer-feedback');
+      if (message) { message.textContent = '\u00a0'; message.className = 'answer-feedback'; }
+    }
+  }
+  announce(enabled ? 'Подсказки включены.' : 'Подсказки выключены.');
+}
+
 function openDialog(html) {
   closeDialog();
   const dialog = document.createElement('dialog');
@@ -263,7 +410,7 @@ function openDialog(html) {
 }
 function closeDialog() { const dialog = document.querySelector('dialog'); if (dialog) { dialog.close(); dialog.remove(); } }
 function help() {
-  openDialog(`<span class="dialog-mark">${icon('receipt')}</span><h2>Твоя смена в магазине</h2><ol class="help-steps"><li>Выбери время суток, 10–40 чеков и формат ответа.</li><li>Посмотри итог чека и напиши сумму по-монгольски.</li><li>После правильного ответа покупатель оплатит покупку.</li><li>В конце смены посмотри результаты и разбери ошибки.</li></ol><p>В режиме «Только число» пиши самостоятельное числительное. В режиме «Число + валюта» добавляй слово төгрөг и используй нужную форму перед ним.</p><button class="button" data-action="close-dialog">Начнём${icon('next')}</button>`);
+  openDialog(`<span class="dialog-mark">${icon('receipt')}</span><h2>Твоя смена в магазине</h2><ol class="help-steps"><li>Настрой 10–40 чеков, формат ответа и подсказки. Игра начинается утром.</li><li>Посмотри итог чека и напиши сумму по-монгольски.</li><li>После правильного ответа покупатель оплатит покупку.</li><li>Время суток меняется автоматически по минутам игры. В конце посмотри результаты и разбери ошибки.</li></ol><p>В режиме «Только число» пиши самостоятельное числительное. В режиме «Число + валюта» добавляй слово төгрөг и используй нужную форму перед ним.</p><button class="button" data-action="close-dialog">Начнём${icon('next')}</button>`);
 }
 
 app.addEventListener('click', event => {
@@ -275,6 +422,7 @@ app.addEventListener('click', event => {
   else if (action === 'home') { if (state.active && summarizeShift(state.active).finished) finish(); practice = null; show('home'); }
   else if (action === 'resume') { closeDialog(); practice = null; show('play'); }
   else if (action === 'history') show('history');
+  else if (action === 'achievements') show('achievements');
   else if (action === 'open-result') { selectedShiftId = id; show('results'); }
   else if (action === 'results') { practice = null; show('results'); }
   else if (action === 'review') { selectedShiftId = id; selectedReceiptId = null; show('review'); }
@@ -285,7 +433,8 @@ app.addEventListener('click', event => {
   else if (action === 'advance') advance();
   else if (action === 'letter') insertLetter(letter);
   else if (action === 'hint') showHint();
-  else if (action === 'reveal') { revealed = true; renderPlay(); }
+  else if (action === 'reveal' && state.settings.hints) { recordHint(playedShift()); revealed = true; if (!practice) save(); renderPlay(); }
+  else if (action === 'toggle-hints') setHintsEnabled(!state.settings.hints);
   else if (action === 'help') help();
   else if (action === 'close-dialog') closeDialog();
   else if (action === 'sound') { state.settings.sound = !state.settings.sound; save(); document.querySelectorAll('[data-action="sound"]').forEach(control => { control.setAttribute('aria-pressed', String(state.settings.sound)); control.setAttribute('aria-label', state.settings.sound ? 'Выключить звуки кассы' : 'Включить звуки кассы'); control.title = control.getAttribute('aria-label'); control.innerHTML = icon(state.settings.sound ? 'sound' : 'mute') + '<span class="sound-label">Звуки кассы</span>'; }); }
@@ -303,12 +452,14 @@ app.addEventListener('input', event => {
   }
   if (event.target.id === 'amount-answer') { playedShift().draftAnswer = event.target.value; if (!practice) save(); }
 });
-app.addEventListener('change', event => { if (event.target.name === 'answer-mode') { state.settings.mode = event.target.value; save(); } if (event.target.name === 'receipt-language') { state.settings.receiptLanguage = event.target.value === 'mn' ? 'mn' : 'ru'; state.settings.productLanguage = event.target.value === 'ru' ? 'ru' : 'mn'; save(); } });
-window.addEventListener('beforeunload', save);
+app.addEventListener('change', event => { if (event.target.name === 'hints-enabled') setHintsEnabled(event.target.checked); if (event.target.name === 'answer-mode') { state.settings.mode = event.target.value; save(); } if (event.target.name === 'receipt-language') { state.settings.receiptLanguage = event.target.value === 'mn' ? 'mn' : 'ru'; state.settings.productLanguage = event.target.value === 'ru' ? 'ru' : 'mn'; save(); } });
+window.addEventListener('beforeunload', () => { syncPlayClock(); save(); });
+document.addEventListener('visibilitychange', () => { syncPlayClock(); save(); });
+setInterval(syncPlayClock, 1000);
 let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => { const shift = playedShift(); if (view === 'play' && shift) paintWorld(shift.type, shift.completedCount / shift.target, currentReceipt(shift)); }, 120);
+  resizeTimer = setTimeout(() => { const shift = playedShift(); if (view === 'play' && shift) paintWorld(clockAt(shift).type, clockAt(shift).progress, currentReceipt(shift)); }, 120);
 });
 
 let warmImages = [];
@@ -333,6 +484,7 @@ async function boot() {
       render();
     }
     intro.hide();
+    syncPlayClock();
   } catch (error) {
     console.error('Game loading failed:', error);
     intro.fail();
